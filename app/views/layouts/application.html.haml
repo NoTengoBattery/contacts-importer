@@ -12,4 +12,5 @@
     = stylesheet_pack_tag "styles/tailwind",    media: :all, "data-turbo-track": :reload, "data-turbo-eval": false
     = javascript_pack_tag "application",        media: :all, "data-turbo-track": :reload, "data-turbo-eval": false
   %body
-    = yield
+    %div{ class: %i[container p-6] }
+      = yield

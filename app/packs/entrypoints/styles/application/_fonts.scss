@@ -1,3 +1,5 @@
 @use '@fontsource/jetbrains-mono/scss/mixins' as JB;
+@use '@fontsource/rubik/scss/mixins' as RK;
 
 @include JB.fontFaceVariable($fontName: 'JetBrains Mono');
+@include RK.fontFaceVariable($fontName: 'Rubik');

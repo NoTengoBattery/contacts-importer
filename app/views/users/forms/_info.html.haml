@@ -1,0 +1,17 @@
+%turbo-frame#users-info-form
+  = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+    .form-field.mt-4
+      = f.label(:email, class: style_form_label)
+      = f.text_field(:email, autocomplete: :email, spellcheck: false, class: style_form_field)
+      = validations_form_errors_for(resource, :email)
+    .form-field.mt-2
+      = f.label(:password, class: style_form_label)
+      = f.password_field(:password, autocomplete: "new-password", class: style_form_field)
+      = validations_form_errors_for(resource, :password)
+      = validations_form_suggestion("#{t('misc.tip')}:", t("users.shared.random_recommended"))
+    .form-field.mt-2
+      = f.label(:password_confirmation, class: style_form_label)
+      = f.password_field(:password_confirmation, autocomplete: "new-password", class: style_form_field)
+      = validations_form_errors_for(resource, :password_confirmation)
+    .actions.flow-root.mt-2
+      = f.submit(t(".sign_up"), class: %i[bg-primary-700 float-right px-3 py-1.5 text-white])

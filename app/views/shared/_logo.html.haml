@@ -1,0 +1,6 @@
+- uuid = dom_uuid("#{t(:site_name)} ~ Logo Scalable Icon")
+
+- cache(uuid) do
+  .logo-icon.absolute.h-6.inset-0{ data: { "turbo-permanent": true }, id: uuid }
+    .text-2xl.text-primary-600
+      %span.iconify{ "data-icon": "tabler:battery-off", "data-inline": false }
