@@ -3,6 +3,10 @@ es:
   contact: Contacto
   message_here: Por favor, escriba su mensaje en este espacio. Gracias.
   misc:
-    http_auth_greeting: Por favor, escriba sus credenciales
-  site_name: NoTengoBattery
+    tip: Tip
+  site_name: Contacts
   under_construction: "<p>En construcción...</"
+  users:
+    forms:
+      info:
+        sign_up: Crear
