@@ -90,7 +90,7 @@
     "Turbo",
     "Ruby"
   ],
-  "name": "website-template",
+  "name": "contacts-importer",
   "repository": "git@github.com:NoTengoBattery/rails6-webpacker.git",
   "stack": "heroku-20",
   "success_url": "/",
