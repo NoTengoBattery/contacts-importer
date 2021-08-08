@@ -1,6 +1,7 @@
 require "domain_routing"
 
 Rails.application.routes.draw do
+  devise_for :users
   domains_router = DomainsRouter.new(self)
 
   root "placeholders#index"
