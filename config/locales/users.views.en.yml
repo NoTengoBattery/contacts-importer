@@ -45,5 +45,10 @@ en:
     registrations:
       new:
         sign_up: Create a new account
+        sign_up_btn: Create account
+    sessions:
+      new:
+        sign_in: Sign in
+        sign_in_btn: Let me in!
     shared:
       random_recommended: We recommend using a randomly generated password

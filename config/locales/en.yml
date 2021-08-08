@@ -7,7 +7,3 @@ en:
     tip: Tip
   site_name: Contacts
   under_construction: "<p>Under construction...</"
-  users:
-    forms:
-      info:
-        sign_up: Create
