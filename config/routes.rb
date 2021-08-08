@@ -2,9 +2,7 @@ require "domain_routing"
 
 Rails.application.routes.draw do
   get "users/show"
-  devise_for :users, controllers: {
-    registrations: "users/registrations"
-  }
+  devise_for :users
   resources :users, only: [:show]
 
   # TODO: Remove this placeholders
