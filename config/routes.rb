@@ -1,7 +1,11 @@
 require "domain_routing"
 
 Rails.application.routes.draw do
-  devise_for :users
+  get "users/show"
+  devise_for :users, controllers: {
+    registrations: "users/registrations"
+  }
+  resources :users, only: [:show]
 
   # TODO: Remove this placeholders
   root "placeholders#index"
