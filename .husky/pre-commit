@@ -1,0 +1,32 @@
+#!/bin/sh
+[ -z $WITH_SHELL ] && WITH_SHELL=/bin/sh exec /bin/sh "$0" "$@"
+
+export MY_NAME=$(basename "$0")
+. "$(dirname "$0")/_/husky.sh"
+. "$(dirname "$0")/_hooks.sh"
+
+# Small introduction of how this works:
+# 1. The GIT_FILES variable contains all files that are stagged for the commit
+# 2. The loop will match a glob and store the files in a exported global variable
+# 3. When the loop finishes, the hook will run using a special function called run_hook
+#   - The FOR variable determines the file list that will append at the end of the command
+#   - The run_hook accepts a command with its arguments, such as "yarn eslint"
+#   - So, if the line says FOR=LINT run_hook yarn lint, and LINT has a file "app/javascript/test.js"...
+#     ... it will run as follows: yarn lint app/javascript/test.js
+printf "%s\n" "$GIT_FILES" | { while IFS= read -r staged; do
+    case "$staged" in
+      *.rb|*.rake)         add_file "$staged" Rubocop   ;;
+      *.js|*.jsx)          add_file "$staged" ESLint    ;;
+      *.ts|*.tsx)          add_file "$staged" ESLint; add_file "$staged" TSC ;;
+      *.haml)              add_file "$staged" HamlLint  ;;
+      *.sass|*.scss|*.css) add_file "$staged" StyleLint ;;
+      *) : ;;
+    esac
+  done
+
+  FOR=Rubocop RUBOCOP_ENFORCE=yes run_hook bundle exec rubocop
+  FOR=ESLint run_hook yarn eslint
+  FOR=TSC run_hook yarn tsc
+  FOR=HamlLint run_hook bundle exec haml-lint
+  FOR=StyleLint run_hook yarn stylelint
+}

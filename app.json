@@ -1,0 +1,98 @@
+{
+  "addons": [
+    {
+      "as": "AMAZON",
+      "plan": "bucketeer:standard"
+    },
+    {
+      "as": "DATABASE",
+      "plan": "heroku-postgresql:standard-0"
+    },
+    {
+      "as": "REDIS_CACHE",
+      "plan": "rediscloud:500"
+    },
+    {
+      "as": "REDIS_DATABASE",
+      "plan": "rediscloud:250"
+    },
+    {
+      "plan": "scheduler:standard"
+    }
+  ],
+  "buildpacks": [
+    {
+      "url": "https://github.com/heroku/heroku-buildpack-apt"
+    },
+    {
+      "url": "https://github.com/brandoncc/heroku-buildpack-vips"
+    },
+    {
+      "url": "heroku/nodejs"
+    },
+    {
+      "url": "heroku/ruby"
+    }
+  ],
+  "description": "Ruby on Rails Monolithic Website",
+  "environments": {
+    "review": {
+      "addons": [
+        {
+          "as": "AMAZON",
+          "plan": "bucketeer:hobbyist"
+        },
+        {
+          "as": "DATABASE",
+          "plan": "heroku-postgresql:hobby-dev"
+        },
+        {
+          "as": "REDIS_DATABASE",
+          "plan": "heroku-redis:hobby-dev"
+        },
+        {
+          "as": "REDIS_CACHE",
+          "plan": "rediscloud:30"
+        }
+      ],
+      "env": {
+        "IS_HEROKU_REVIEW": {
+          "description": "Set this variable to identify review apps",
+          "value": "true"
+        }
+      },
+      "formation": {
+        "web": {
+          "quantity": 1,
+          "size": "free"
+        },
+        "dev-server": {
+          "quantity": 0,
+          "size": "free"
+        }
+      }
+    }
+  },
+  "formation": {
+    "web": {
+      "quantity": 2,
+      "size": "standard-1x"
+    },
+    "dev-server": {
+      "quantity": 0,
+      "size": "standard-1x"
+    }
+  },
+  "keywords": [
+    "Rails",
+    "Stimulus",
+    "Tailwind",
+    "Turbo",
+    "Ruby"
+  ],
+  "name": "website-template",
+  "repository": "git@github.com:NoTengoBattery/rails6-webpacker.git",
+  "stack": "heroku-20",
+  "success_url": "/",
+  "website": "https://www.notengobattery.com"
+}
