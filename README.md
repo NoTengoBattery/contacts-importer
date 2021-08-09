@@ -1,44 +1,100 @@
-# Ruby on Rails template
+# Contacts Importer
 
-This is a template designed to speed-up project lifting time. It's designed to use the best CI principles and to be automatically deployable to Heroku. With this template, developers can spend more time working on new projects than configuring every aspect of them.
+This program uses background jobs and JSONB objects to extrac contacts from a CSV file and store them in a database. The contacts are associated to a user as well as the processed CSV file.
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+I tried to make this program in less than 24 hours but it's too much work. Currently, this project is missing:
+  - UX: List all contacts uploaded by the user
+  - UX: List all contact list and CSV uploaded by the user
+  - UX: Links to change the language (yes, it's multilingual)
+  - Backend: validations for the contact model
+  - Backend: more test coverage
 
-## Perks
+What it does and have:
+  - Supports multiple languages (English and Spanish)
+  - Parses the file in a background job
+  - Some A-UAT testing (sing in/up)
+  - Support changing to all statuses (as per the spec and more)
+  - Parses and stores the contacts to the database (Contact.all)
+  - Deployed to Heroku
+  - Resque with Redis as backend
+  - Caching of partials and expensive computations
+  - It has a Bucketeer S3 storage backend and the file can be downloaded
+  - Allows and supports user mappings in the GUI
+  - A cool CI and a (almost) perfect use of Git Flow
+    - Yeah, this ones I am commiting direcly to develop. I know is wrong.
 
-  - A very thorough CI pipeline (workflow) that runs linters and automated tests. With good code coverage, it guarantees that no undeployable code will pass the CI tests. Perfect fit for automatic deployment.
-  - Linters configured to use the latest standards.
-  - JavaScript via Webpacker exclusively. TypeScript is supported and encouraged.
-  - Ready to deploy, it's designed as Heroku application but works in bare-servers as well.
-  - Configured dependabot to keep the project always up-to-date.
-  - A GitHub template, that means: no need to clone this project, just use it by clicking the green button!
-  - PostgreSQL database.
-  - Implemented and installed Active Storage with the very efficient libvips processor.
-  - Ready for localization and internationalization.
-  - Uses Stimulus and Turbo for front-end. Cutting edge technology.
-  - Designed to stop developers from sticking to ancient and vulnerable old dependencies.
-  - Supports automatically running tests in Chrome and Firefox in the CI pipeline.
-  - Tailwind, Dart SASS and Iconify installed and ready to use.
+If I had enough time, this would be the plan:
+  - Create a model for the JSONB "details" column and implement the validations
+  - Populate the indexes of ContactLists and Contacts
+  - Add more A-UAT and unit testing
+  - Show the features that are implemented but doesn't work on the front-end yet
+  - Spot n+1 queries with Bullet (included in RSpec and in the browser)
+  - Cache more partials and expensive computations
+  - Implement the scoped uniqueness check (that prevents a user from having 2 contacts with the same email)
+  - Add seeds for a demo user and a demo CSV file
 
-> This template won't use Sprockets (assets pipeline). Webpack or Active Storage should be used instead.
+## Why?
 
-## Dependencies
+I tend to overthink and I always want to keep things sharp and snappy. I plan way ahead and that's where I invest most of the time. I already have a plan and know exactly what to do, what's missing and how to do it. Is just a matter that thinking takes some time and sadly more time than the goal.
 
-- Latest version of Ruby
-- Latest version of Node.js
-- Latest version of libvips
+This mindset intereferes greatly with short deadlines. If I had enough time, say, 3 days, this project would probably be top-tier and outplay most implementations. And is not surprise. The time that I take to make the plan is not "wasted" in the end. Is well invested time. It's more about the architecture and design than about writing the code.
 
-## Credentails
+I think that this project, and at this point, is enough to prove my ability. If you look carefully enough, you will easily notice it. If you think about dismissing this project, well, I can only say that if we have a technical discussion on this you will have no doubts left about my skill level. If I had more time I would make this work beyond excellent.
 
-This application uses the Rails credentials store to save most of it's secrets. This template has no credentials store, so, you need to generate one. In that one, you will define the HTTP credentials to access your review and staging apps.
+Also: I haven't sleep an hour :D just saying, I tried to rush a bit but couldn't. I think this is worth even tho is not complete. Just take a look at it. Don't dismiss this work for free. We can talk about it. Well, anyway, at least I made a great effot (yeah, look at the commit hours, insane, 0 sleep LOL).
 
-1. Run `bundle exec rails credentials:edit`
-2. In that file, add the following lines:
-  ```
-  http_basic:
-    username: <put a username here>
-    password: <put a safe password here>
-  ```
-3. Save your master key in a safe place
-4. Add the master key as a GitHub Secret `RAILS_MASTER_KEY` as well as for dependabot and edit the workflow file as instructed in there
-5. Add that same master key to all Heroku environments and delete the `SECRET_KEY_BASE` variable
+I made costly decisions such as using Tailwind (not a good time saver like Bootrstrap), using a background job from the beginning, using S3 from the beginning, deploying to Heroku from the beginning and using JSONB instead of relational column. That last one is a powerful decision. See, is the best of the relational world, like the through table ContactList (User <=<> Contact List <>=> Contacts) and the best of the document world. This implementation is future-proof. Just think about that.
+
+## Installing and running locally
+
+### System dependencies
+
+A Linux machine is preferred. Install the following dependencies (the process varies depending on your local setup):
+| Dependency                | Version                |
+| ------------------------- | ---------------------- |
+| GIT VCS                   | **any modern version** |
+| Ruby                      | 3.0.2+                 |
+| Node.js                   | 16.4+                  |
+| PostgreSQL                | 12+                    |
+| Redis                     | 6+                     |
+| Foreman                   | 0.87+                  |
+| Google Chrome or Chromium | **any modern version** |
+| Firefox                   | **any modern version** |
+
+### Instructions
+
+1. Clone this repository locally, for example `git clone https://github.com/NoTengoBattery/contacts-importer`
+2. Change to the project's root directory, for example `cd contacts-importer`
+3. Install the Ruby dependencies with `bundle install`
+4. Install the Node.js dependencies with `yarn install`
+5. Roll a new set of credentials with `rm config/credentials.yml.enc; bundle exec rails credentials:edit`
+   - May need to set-up a proper text editor for this command to work. Try `export EDITOR=nano`
+   - To deploy to staging and review apps, add HTTP login details in this file. Not needed locally.
+6. Prepare the database with `bundle exec rails db:prepare`
+   - May need to setup the PostgreSQL roles beforehand
+7. Run the server using `foreman start` and browse to it's URL
+8. Execute the test suite using `bundle exec rspec`
+   - The feature test may fail if Chrome is not installed. Run this command if you have Firefox: `USING_BROWSER=firefox bundle exec rspec`
+   - The feature test may fail in headless configs. Run this command if you have headless config: `CI=true bundle exec rspec`
+
+## Live demo
+
+As always, you can find a live demo in [Heroku](https://thawing-cove-15494.herokuapp.com/)
+> Using free dynos, so, don't expect excellent performance
+
+## Authors
+
+👤 **Oever González**
+
+-   GitHub: [@NoTengoBattery](https://github.com/NoTengoBattery/)
+-   Twitter: [@NoTengoBattery](https://twitter.com/NoTengoBattery/)
+-   LinkedIn: [Oever González](https://linkedin.com/in/NoTengoBattery/)
+
+## Acknowledgments
+
+-   JetBrains for their amazing [JetBrains Mono](https://fonts.google.com/specimen/JetBrains+Mono#about) monospace font family
+-   NoTengoBattery for my amazing and time-saving [Rails Template](https://github.com/NoTengoBattery/rails6-webpacker/)
+
+## 📝 License
+
+Redistribution and public exposure is prohibited. Disclosure is prohibited except for the contributors. All rights reserved. Oever González (c) 2021.
