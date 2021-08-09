@@ -44,11 +44,13 @@ en:
   users:
     registrations:
       new:
+        sign_in: Sign in
         sign_up: Create a new account
         sign_up_btn: Create account
     sessions:
       new:
         sign_in: Sign in
         sign_in_btn: Let me in!
+        sign_up: Sign up
     shared:
       random_recommended: We recommend using a randomly generated password

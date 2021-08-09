@@ -44,11 +44,13 @@ es:
   users:
     registrations:
       new:
+        sign_in: Iniciar sesión
         sign_up: Crea una nueva cuenta
         sign_up_btn: Crea cuenta
     sessions:
       new:
         sign_in: Iniciar sesión
         sign_in_btn: Déjame entrar
+        sign_up: Registrarse
     shared:
       random_recommended: Recomendamos utilizar una contraseña generada aleatoriamente
