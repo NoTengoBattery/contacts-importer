@@ -14,3 +14,5 @@ es:
     new:
       heading: Subir una %{subject}
       upload: "¡Subir!"
+    show:
+      come_back_later: "Esta lista de contactos se procesará luego..."
