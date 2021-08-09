@@ -9,27 +9,26 @@ es:
         one: Lista de contactos
         other: Listas de contactos
   contact_lists:
-    name: Nombre
-    birth_date: Fecha de nacimiento
-    phone: Número de teléfono
     address: Diercción
+    birth_date: Fecha de nacimiento
     credit_card: Número de tarjeta de crédito
     email: Email
-    select: Selecciona una opción no usada...
     mappings:
-      field: "Campo CSV"
+      field: Campo CSV
     messages:
-      successful_upload: Subido exitosamente
       blank: Todos los campos son requeridos
+      successful_map: "¡Información exitosamente mapeada!"
+      successful_upload: Subido exitosamente
       unique: Todos los campos deben ser únicos
-      successful_map: ¡Información exitosamente mapeada!
+    name: Nombre
     new:
       heading: Subir una %{subject}
       upload: "¡Subir!"
+    phone: Número de teléfono
+    select: Selecciona una opción no usada...
     show:
+      mapped: Ahora se están extrayendo los contactos...
+      need_mappings: En la siguiente pantalla selecciona que información recolectada de tu CSV corresponde a cual información del contacto
       on_hold: Esta %{subject} se procesará luego...
       processing: Esta %{subject} ya se está procesando... ¡Aguanta un poco!
-      success: La siguente lista muestra todos los contactos importados
-      reload: "Recarga esta pagina para ver los cambios durante el proceso"
-      need_mappings: "En la siguiente pantalla selecciona que información recolectada de tu CSV corresponde a cual información del contacto"
-      mapped: "Ahora se están extrayendo los contactos..."
+      reload: Recarga esta pagina para ver los cambios durante el proceso
