@@ -6,9 +6,9 @@ RSpec.describe "ContactLists", type: :request do
     sign_in user
   end
 
-  describe "GET /index" do
+  describe "GET /" do
     it "returns http success" do
-      get "/contact_lists/index"
+      get "/contact_lists"
       expect(response).to have_http_status(:success)
     end
   end
