@@ -1,5 +1,10 @@
 ---
 es:
+  errors:
+    messages:
+      format: 'debe tener uno de los siguientes formatos: %{formats}'
+      oversize: tiene que tener un tamaño menor %{size}
+      blank: "no puede estar vacío"
   misc:
     http_auth_greeting: Por favor ingresa tus credenciales
     tip: Tip

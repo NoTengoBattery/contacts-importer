@@ -4,17 +4,13 @@ es:
     attributes:
       contact_list:
         contacts_file: Archivo de contactos
-    errors:
-      models:
-        contact_list:
-          attributes:
-            user:
-              blank: 'no puede estar vacío'
     models:
       contact_list:
         one: Lista de contactos
         other: Listas de contactos
   contact_lists:
+    messages:
+      successful_upload: "Subido exitosamente"
     new:
-      heading: "Subir una %{subject}"
-      upload: ¡Subir!
+      heading: Subir una %{subject}
+      upload: "¡Subir!"
