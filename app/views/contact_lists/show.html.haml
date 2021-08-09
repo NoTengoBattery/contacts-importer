@@ -22,7 +22,16 @@
   %p
     %span.iconify.inline{ "data-icon": "gg:user-list", "data-inline": false }
     %span= t(".need_mappings", subject: thing.downcase)
+    = render partial: "shared/flash"
     = render "mappings", resource: @contact_list,
     resource_name: @contact_list.model_name.param_key,
-    url: contact_lists_map_url,
+    url: contact_lists_map_url(@contact_list),
     button_text: t("misc.submit")
+- if @contact_list.mapped?
+  = render partial: "shared/flash"
+  %p
+    %span.iconify.animate-spin.inline{ "data-icon": "gg:spinner", "data-inline": false }
+    %span= t(".mapped", subject: thing.downcase)
+  %p
+    %span.iconify.inline{ "data-icon": "gg:info", "data-inline": false }
+    %span= t(".reload", subject: thing.downcase)

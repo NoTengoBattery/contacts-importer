@@ -20,6 +20,9 @@ en:
       field: "CSV field"
     messages:
       successful_upload: Uploaded successfully
+      blank: All fields are required
+      unique: All fields must be unique
+      successful_map: Information successfully mapped!
     new:
       heading: Upload a %{subject}
       upload: Upload!
@@ -29,3 +32,4 @@ en:
       success: The following list shows all imported contacts
       reload: "Reload this page to see the changes during the process"
       need_mappings: "In the following screen select what information gathered from your CSV corresponds to which contact details"
+      mapped: "The contacts are being extracted now..."

@@ -20,6 +20,9 @@ es:
       field: "Campo CSV"
     messages:
       successful_upload: Subido exitosamente
+      blank: Todos los campos son requeridos
+      unique: Todos los campos deben ser únicos
+      successful_map: ¡Información exitosamente mapeada!
     new:
       heading: Subir una %{subject}
       upload: "¡Subir!"
@@ -29,3 +32,4 @@ es:
       success: La siguente lista muestra todos los contactos importados
       reload: "Recarga esta pagina para ver los cambios durante el proceso"
       need_mappings: "En la siguiente pantalla selecciona que información recolectada de tu CSV corresponde a cual información del contacto"
+      mapped: "Ahora se están extrayendo los contactos..."
