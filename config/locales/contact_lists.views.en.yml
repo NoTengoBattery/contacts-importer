@@ -1,0 +1,20 @@
+---
+en:
+  activerecord:
+    attributes:
+      contact_list:
+        contacts_file: Contacts file
+    errors:
+      models:
+        contact_list:
+          attributes:
+            user:
+              blank: can't be blank
+    models:
+      contact_list:
+        one: Contact list
+        other: Contact lists
+  contact_lists:
+    new:
+      heading: "Upload a %{subject}"
+      upload: Upload!

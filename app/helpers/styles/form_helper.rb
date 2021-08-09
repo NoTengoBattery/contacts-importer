@@ -14,5 +14,13 @@ module Styles
       classes += %i[text-base text-primary-800]
       classes
     end
+
+    def style_form_file_field
+      classes = style_form_field
+      classes -= %i[px-2 py-1]
+      classes -= %i[focus:border-opacity-0]
+      classes += %i[focus:border-0]
+      classes
+    end
   end
 end
