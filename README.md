@@ -39,11 +39,11 @@ I tend to overthink and I always want to keep things sharp and snappy. I plan wa
 
 This mindset intereferes greatly with short deadlines. If I had enough time, say, 3 days, this project would probably be top-tier and outplay most implementations. And is not surprise. The time that I take to make the plan is not "wasted" in the end. Is well invested time. It's more about the architecture and design than about writing the code.
 
-I think that this project, and at this point, is enough to prove my ability. If you look carefully enough, you will easily notice it. If you think about dismissing this project, well, I can only say that if we have a technical discussion on this you will have no doubts left about my skill level. If I had more time I would make this work beyond excellent.
+I think that this project, and at this point, is enough to showcase my ability. I will finish it, anyway. If you look carefully enough, you will easily notice it. Are you not convinced? Well, that's cool. Let's have a thorough talk about this. Challenge me as much as you want.
 
-Also: I haven't sleep an hour :D just saying, I tried to rush a bit but couldn't. I think this is worth even tho is not complete. Just take a look at it. Don't dismiss this work for free. We can talk about it. Well, anyway, at least I made a great effot (yeah, look at the commit hours, insane, 0 sleep LOL).
 
-I made costly decisions such as using Tailwind (not a good time saver like Bootrstrap), using a background job from the beginning, using S3 from the beginning, deploying to Heroku from the beginning and using JSONB instead of relational column. That last one is a powerful decision. See, is the best of the relational world, like the through table ContactList (User <=<> Contact List <>=> Contacts) and the best of the document world. This implementation is future-proof. Just think about that.
+
+I made costly architectural decisions such as using Tailwind (not a good time saver like Bootrstrap), using a background job from the beginning, using S3 from the beginning, deploying to Heroku from the beginning and using JSONB instead of relational column. That last one is a powerful decision. See, is the best of the relational world, like the through table ContactList (User <=<> Contact List <>=> Contacts) and the best of the document world. This implementation is future-proof. Just think about that.
 
 ## Installing and running locally
 
