@@ -1,0 +1,20 @@
+---
+es:
+  activerecord:
+    attributes:
+      contact_list:
+        contacts_file: Archivo de contactos
+    models:
+      contact_list:
+        one: Lista de contactos
+        other: Listas de contactos
+  contact_lists:
+    messages:
+      successful_upload: Subido exitosamente
+    new:
+      heading: Subir una %{subject}
+      upload: "¡Subir!"
+    show:
+      on_hold: Esta %{subject} se procesará luego...
+      processing: Esta %{subject} ya se está procesando... ¡Aguanta un poco!
+      success: La siguente lista muestra todos los contactos importados

@@ -7,7 +7,6 @@ module.exports = {
     colors: {
       transparent: 'transparent',
       current: 'currentColor',
-      main: colors.trueGray, // TODO: delete after removing placeholder
       primary: colors.cyan,
       disabled: colors.warmGray,
       display: colors.trueGray,

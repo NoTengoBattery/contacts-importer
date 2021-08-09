@@ -1,9 +1,11 @@
 ---
 es:
-  contact: Contacto
-  message_here: Por favor, escriba su mensaje en este espacio. Gracias.
+  errors:
+    messages:
+      blank: no puede estar vacío
+      format: 'debe tener uno de los siguientes formatos: %{formats}'
+      oversize: tiene que tener un tamaño menor %{size}
   misc:
     http_auth_greeting: Por favor ingresa tus credenciales
     tip: Tip
   site_name: Contactos
-  under_construction: "<p>En construcción...</"
