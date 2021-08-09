@@ -2,7 +2,9 @@
 
 This program uses background jobs and JSONB objects to extrac contacts from a CSV file and store them in a database. The contacts are associated to a user as well as the processed CSV file.
 
-I tried to make this program in less than 24 hours but it's too much work. Currently, this project is missing:
+My goal was to finish this small project in less than 24 hours. I'm proud to admit I failed. Not a big deal, is just the results of a very detailed thinking process and I won't make a poor quality work to meet a deadline.
+
+Currently, this project is missing:
   - UX: List all contacts uploaded by the user
   - UX: List all contact list and CSV uploaded by the user
   - UX: Links to change the language (yes, it's multilingual)
