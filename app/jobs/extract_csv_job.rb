@@ -5,18 +5,20 @@ class ExtractCsvJob < ApplicationJob
 
   before_perform do |job|
     resource = job.arguments[0][:resource]
-    resource.status = "processing"
+    resource.status = "processing" if resource.on_hold?
     resource.save!
   end
 
   after_perform do |job|
     resource = job.arguments[0][:resource]
-    resource.status = "finished"
-    resource.save!
+    resource.status = "finished" unless resource.needs_mappings? || resource.failed?
+    # resource.save!
   end
 
   def perform(params = {})
-    create_ir(params[:resource])
+    resource = params[:resource]
+    create_ir(resource) if resource.processing?
+    store_contacts(resource) if resource.mapped?
   end
 
   private
@@ -34,12 +36,23 @@ class ExtractCsvJob < ApplicationJob
           record.each do |key, val|
             record_hash[key] = val
           end
-          records.push({ data: record_hash })
+          records.push(record_hash)
         end
         new_ir[:records] = records
       end
       resource.ir = new_ir
+      resource.status = "needs_mappings"
       resource.save!
+    end
+
+    def store_contacts(resource)
+      resource.ir["records"].each do |record|
+        params = record.transform_keys do |key|
+          resource.ir["headers"][key]
+        end
+        contact = resource.contacts.build({ details: params })
+        contact.save!
+      end
     end
   # rubocop:enable Metrics/AbcSize, Metrics/MethodLength
 end

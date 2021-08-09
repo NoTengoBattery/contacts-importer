@@ -9,12 +9,26 @@ en:
         one: Contact list
         other: Contact lists
   contact_lists:
+    address: Address
+    birth_date: Birth date
+    credit_card: Credit card number
+    email: Email
+    mappings:
+      field: CSV field
     messages:
+      blank: All fields are required
+      successful_map: Information successfully mapped!
       successful_upload: Uploaded successfully
+      unique: All fields must be unique
+    name: Name
     new:
       heading: Upload a %{subject}
       upload: Upload!
+    phone: Phone number
+    select: Select an unused option...
     show:
+      mapped: The contacts are being extracted now...
+      need_mappings: In the following screen select what information gathered from your CSV corresponds to which contact details
       on_hold: This %{subject} will be processed soon...
       processing: This %{subject} is already in process... Hang on!
-      success: The following list shows all imported contacts
+      reload: Reload this page to see the changes during the process

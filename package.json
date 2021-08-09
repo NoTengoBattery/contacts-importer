@@ -11,7 +11,7 @@
     "prepare": "husky install",
     "stylelint": "stylelint '**/*.@(sa|sc|c)ss'",
     "stylelint-fix": "stylelint --fix",
-    "tsc": "tsc --pretty --project ."
+    "tsc-full": "tsc --pretty --project ."
   },
   "dependencies": {
     "@babel/core": "^7.14",
