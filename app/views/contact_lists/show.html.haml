@@ -1,6 +1,16 @@
-%h1 #{@contact_list.model_name.human} ##{@contact_list.id}
+- thing = @contact_list.model_name.human
+
+%h1 #{thing} ##{@contact_list.id}
 
 - if @contact_list.on_hold?
   %p
     %span.iconify.animate-spin.inline{ "data-icon": "gg:spinner", "data-inline": false }
-    %span= t(".come_back_later")
+    %span= t(".on_hold", subject: thing.downcase)
+- if @contact_list.processing?
+  %p
+    %span.iconify.animate-spin.inline{ "data-icon": "gg:spinner", "data-inline": false }
+    %span= t(".processing", subject: thing.downcase)
+- if @contact_list.finished?
+  %p
+    %span.iconify.inline{ "data-icon": "gg:play-list-check", "data-inline": false }
+    %span= t(".success", subject: thing.downcase)

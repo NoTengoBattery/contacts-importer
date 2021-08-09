@@ -15,4 +15,6 @@ es:
       heading: Subir una %{subject}
       upload: "¡Subir!"
     show:
-      come_back_later: "Esta lista de contactos se procesará luego..."
+      on_hold: "Esta %{subject} se procesará luego..."
+      processing: "Esta %{subject} ya se está procesando... ¡Aguanta un poco!"
+      success: "La siguente lista muestra todos los contactos importados"
