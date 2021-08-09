@@ -4,6 +4,7 @@
 class ContactList < ApplicationRecord
   belongs_to :user
   has_one_attached :contacts_file
+  has_many :contacts, dependent: :destroy
 
   enum status: { on_hold: 0, processing: 1, failed: 2, finished: 3 }
 end
