@@ -69,6 +69,8 @@ RSpec/ImplicitSubject:
   Enabled: false
 RSpec/Capybara:
   Enabled: true
+RSpec/ExampleLength:
+  Max: 10
 RSpec/FactoryBot:
   Enabled: true
 RSpec/Rails:
