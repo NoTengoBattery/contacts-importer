@@ -19,6 +19,10 @@ class ContactListsController < ApplicationController
     true
   end
 
+  def map
+    true
+  end
+
   private
     def contact_list_params
       params.fetch(ContactList.model_name.param_key.to_sym, {}).permit(:contacts_file)

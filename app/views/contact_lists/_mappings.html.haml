@@ -1,0 +1,10 @@
+#contact-list-mappings
+  = form_for(resource, as: resource_name, url: url,
+    data: { controller: "form", action: "turbo:submit-end->form#reset" }) do |f|
+    - resource.ir["headers"].each do |key, val|
+      .form-field.mt-2
+        = f.label(key, "#{t('.field')}: '#{key}'", class: style_form_label)
+        = select_tag("map[#{key}]", options_for_select(resource.mappings, val), class: style_form_field)
+    .actions.flow-root.mt-2
+      = f.submit(button_text, class: %i[bg-primary-700 float-right px-3 py-1.5 text-white],
+        data: { "form-target": :reset })

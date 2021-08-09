@@ -5,18 +5,19 @@ class ExtractCsvJob < ApplicationJob
 
   before_perform do |job|
     resource = job.arguments[0][:resource]
-    resource.status = "processing"
+    resource.status = "processing" if resource.on_hold?
     resource.save!
   end
 
   after_perform do |job|
     resource = job.arguments[0][:resource]
-    resource.status = "finished"
+    resource.status = "finished" unless resource.needs_mappings?
     resource.save!
   end
 
   def perform(params = {})
-    create_ir(params[:resource])
+    resource = params[:resource]
+    create_ir(resource) if resource.processing?
   end
 
   private
@@ -39,6 +40,7 @@ class ExtractCsvJob < ApplicationJob
         new_ir[:records] = records
       end
       resource.ir = new_ir
+      resource.status = "needs_mappings"
       resource.save!
     end
   # rubocop:enable Metrics/AbcSize, Metrics/MethodLength

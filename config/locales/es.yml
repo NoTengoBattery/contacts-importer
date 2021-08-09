@@ -8,4 +8,5 @@ es:
   misc:
     http_auth_greeting: Por favor ingresa tus credenciales
     tip: Tip
+    submit: Enviar
   site_name: Contactos

@@ -1,7 +1,9 @@
 /* stylelint-disable selector-no-qualifying-type */
 
+/*! purgecss start ignore */
 input[type='file']::file-selector-button {
   @apply px-3 py-1.5;
   @apply border-0;
   @apply text-display-700 bg-primary-300;
 }
+/*! purgecss end ignore */
