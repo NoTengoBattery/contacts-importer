@@ -28,6 +28,7 @@ gem "irb", "~> 1.3", ">= 1.3.5"
 gem "kaminari", "~> 1.2", ">= 1.2.1"
 gem "pg", "~> 1.2", ">= 1.2.3"
 gem "rails-i18n", "~> 6.0"
+gem "resque", "~> 2.0"
 gem "rest-client", "~> 2.1"
 
 # Reduces boot times through caching; required in config/boot.rb

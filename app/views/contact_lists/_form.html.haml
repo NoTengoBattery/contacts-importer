@@ -1,0 +1,8 @@
+#contact-list-form
+  = form_for(resource, as: resource_name, url: url) do |f|
+    .form-field.mt-4
+      = f.label(:contacts_file, class: style_form_label)
+      = f.file_field(:contacts_file, class: style_form_file_field)
+      = validations_form_errors_for(resource, :contacts_file)
+    .actions.flow-root.mt-2
+      = f.submit(button_text, class: %i[bg-primary-700 float-right px-3 py-1.5 text-white])

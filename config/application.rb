@@ -55,5 +55,7 @@ module ContactsImporter
     config.session_store :cookie_store, key: AppConfig::Cookie::SESSION_STORE,
                                         tld_length: AppConfig::Config.cookie_tld_length,
                                         domain: :all
+
+    config.active_job.queue_adapter = :resque
   end
 end

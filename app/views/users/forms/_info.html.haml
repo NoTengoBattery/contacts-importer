@@ -17,3 +17,4 @@
         = validations_form_errors_for(resource, :password_confirmation)
     .actions.flow-root.mt-2
       = f.submit(button_text, class: %i[bg-primary-700 float-right px-3 py-1.5 text-white])
+      = link_to(link_text, link_url, class: %i[text-primary-400 float-right px-3 py-1.5])

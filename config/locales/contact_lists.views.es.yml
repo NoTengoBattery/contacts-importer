@@ -1,0 +1,34 @@
+---
+es:
+  activerecord:
+    attributes:
+      contact_list:
+        contacts_file: Archivo de contactos
+    models:
+      contact_list:
+        one: Lista de contactos
+        other: Listas de contactos
+  contact_lists:
+    address: Diercción
+    birth_date: Fecha de nacimiento
+    credit_card: Número de tarjeta de crédito
+    email: Email
+    mappings:
+      field: Campo CSV
+    messages:
+      blank: Todos los campos son requeridos
+      successful_map: "¡Información exitosamente mapeada!"
+      successful_upload: Subido exitosamente
+      unique: Todos los campos deben ser únicos
+    name: Nombre
+    new:
+      heading: Subir una %{subject}
+      upload: "¡Subir!"
+    phone: Número de teléfono
+    select: Selecciona una opción no usada...
+    show:
+      mapped: Ahora se están extrayendo los contactos...
+      need_mappings: En la siguiente pantalla selecciona que información recolectada de tu CSV corresponde a cual información del contacto
+      on_hold: Esta %{subject} se procesará luego...
+      processing: Esta %{subject} ya se está procesando... ¡Aguanta un poco!
+      reload: Recarga esta pagina para ver los cambios durante el proceso
