@@ -1,6 +1,7 @@
 require "domain_routing"
 
 Rails.application.routes.draw do
+  get "contact_lists/index"
   devise_for :users
   resources :users, only: [:show]
 
