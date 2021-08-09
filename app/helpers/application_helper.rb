@@ -1,5 +1,4 @@
 require "layouts/application_layout_helper"
-require "placeholder_helper"
 require "styles/form_helper"
 require "validations/form_helper"
 
