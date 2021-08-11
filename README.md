@@ -83,6 +83,10 @@ A Linux machine is preferred. Install the following dependencies (the process va
 
 As always, you can find a live demo in [Heroku](https://thawing-cove-15494.herokuapp.com/)
 > Using free dynos, so, don't expect excellent performance
+> 
+> Username: `demo`
+> 
+> Password: `demo`
 
 ## Authors
 
@@ -99,4 +103,4 @@ As always, you can find a live demo in [Heroku](https://thawing-cove-15494.herok
 
 ## 📝 License
 
-Redistribution and public exposure is prohibited. Disclosure is prohibited except for the contributors. All rights reserved. Oever González (c) 2021.
+Open-source under the MIT License. Oever González (c) 2021.
