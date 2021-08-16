@@ -39,7 +39,7 @@
     "stimulus": "^2.0",
     "tailwindcss": "^2.1",
     "webpack": "^5.50",
-    "webpack-cli": "^4.7"
+    "webpack-cli": "^4.8"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.14",
