@@ -47,7 +47,7 @@ group :development, :test do
   gem "faker", "~> 2.18"
   gem "rspec-rails", "~> 5.0", ">= 5.0.1"
   # Helper to avoid N+1 and unused eager loads
-  gem "bullet", "~> 6.1", ">= 6.1.4"
+  gem "bullet", "~> 6.1"
 end
 
 group :development do
