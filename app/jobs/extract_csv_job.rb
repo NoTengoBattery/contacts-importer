@@ -25,18 +25,15 @@ class ExtractCsvJob < ApplicationJob
     # No time to optimize this
     # rubocop:disable Metrics/AbcSize, Metrics/MethodLength
     def create_ir(resource)
-      # Try to make the save an atomic operation by holding the mid process in memory and writing until it's done
       new_ir = resource.ir || {}
       resource.contacts_file.open do |csv|
         parsed = CSV.read(csv.path, headers: true, skip_blanks: true)
         new_ir[:headers] = parsed.headers.index_with { |_item| nil }
         records = new_ir[:records] || []
         parsed.each do |record|
-          record_hash = {}
-          record.each do |key, val|
-            record_hash[key] = val
-          end
-          records.push(record_hash)
+          records.push(record.each_with_object({}) do |(key, val), acc|
+            acc[key] = val
+          end)
         end
         new_ir[:records] = records
       end
