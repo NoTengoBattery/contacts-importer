@@ -3,8 +3,8 @@
 = render partial: "shared/logo_h"
 %h1.mt-4= t(".sign_in")
 = render partial: "shared/flash"
-= render partial: "users/forms/info", locals: { signin_up: false,
+= render partial: "users/forms/info", locals: {signin_up: false,
   button_text: t(".sign_in_btn"),
   url: session_path(resource_name),
   link_text: t(".sign_up"),
-  link_url: new_user_registration_path }
+  link_url: new_user_registration_path}

@@ -4,6 +4,7 @@ require "shared_rutines"
 # Due to time shortage I will copy-paste the code. Ideally, I would abstract the differences in a
 # common example.
 
+# rubocop:disable RSpec/ExampleLength
 RSpec.describe "user registration page", type: :system do
   describe "sign up" do
     it "shows the 'Sign up' page" do
@@ -38,3 +39,5 @@ RSpec.describe "user registration page", type: :system do
     end
   end
 end
+
+# rubocop:enable RSpec/ExampleLength

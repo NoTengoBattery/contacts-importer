@@ -3,10 +3,10 @@ class Contact < ApplicationRecord
   has_one :user, through: :contact_lists
 
   jsonb_accessor :details,
-                 address: :string,
-                 birth_date: :string,
-                 credit_card: :string,
-                 email: :string,
-                 name: :string,
-                 phone: :string
+    address: :string,
+    birth_date: :string,
+    credit_card: :string,
+    email: :string,
+    name: :string,
+    phone: :string
 end

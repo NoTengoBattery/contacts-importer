@@ -1,5 +1,10 @@
 require "rails_helper"
+require "shared_rutines"
 
+# rubocop:disable RSpec/EmptyExampleGroup
 RSpec.describe Contact, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  context "with validations" do
+    subject { FactoryBot.build(:contact) }
+  end
 end
+# rubocop:enable RSpec/EmptyExampleGroup
