@@ -5,8 +5,8 @@ class Contact < ApplicationRecord
   jsonb_accessor :details,
     address: :string,
     birth_date: :string,
-    credit_card: :string,
-    email: :string,
-    name: :string,
-    phone: :string
+    credit_card: :string
+
+  validates :address, presence: true
+  validates :birth_date, iso8601: true, presence: true
 end

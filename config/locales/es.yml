@@ -4,6 +4,7 @@ es:
     messages:
       blank: no puede estar vacío
       format: 'debe tener uno de los siguientes formatos: %{formats}'
+      iso8601: debe estar en formato ISO8601
       oversize: tiene que tener un tamaño menor %{size}
   misc:
     http_auth_greeting: Por favor ingresa tus credenciales
