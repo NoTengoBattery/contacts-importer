@@ -9,7 +9,7 @@
       = f.password_field(:password, autocomplete: "new-password", class: style_form_field)
       = validations_form_errors_for(resource, :password)
       - if signin_up
-        = validations_form_suggestion("#{t('misc.tip')}:", t("users.shared.random_recommended"))
+        = validations_form_suggestion("#{t("misc.tip")}:", t("users.shared.random_recommended"))
     - if signin_up
       .form-field.mt-2
         = f.label(:password_confirmation, class: style_form_label)
@@ -17,4 +17,4 @@
         = validations_form_errors_for(resource, :password_confirmation)
     .actions.flow-root.mt-2
       = f.submit(button_text, class: %i[bg-primary-700 float-right px-3 py-1.5 text-white])
-      = link_to(link_text, link_url, class: %i[text-primary-400 float-right px-3 py-1.5])
+      = link_to(link_text, link_url, class: %i[text-primary-500 float-right px-3 py-1.5])

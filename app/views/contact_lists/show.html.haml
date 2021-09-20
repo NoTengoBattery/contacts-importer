@@ -6,21 +6,21 @@
 
 - if @contact_list.on_hold?
   %p
-    %span.iconify.animate-spin.inline{ "data-icon": "gg:spinner", "data-inline": false }
+    %span.iconify.animate-spin.inline{"data-icon": "gg:spinner", "data-inline": false}
     %span= t(".on_hold", subject: thing.downcase)
   %p
-    %span.iconify.inline{ "data-icon": "gg:info", "data-inline": false }
+    %span.iconify.inline{"data-icon": "gg:info", "data-inline": false}
     %span= t(".reload", subject: thing.downcase)
 - if @contact_list.processing?
   %p
-    %span.iconify.animate-spin.inline{ "data-icon": "gg:spinner", "data-inline": false }
+    %span.iconify.animate-spin.inline{"data-icon": "gg:spinner", "data-inline": false}
     %span= t(".processing", subject: thing.downcase)
   %p
-    %span.iconify.inline{ "data-icon": "gg:info", "data-inline": false }
+    %span.iconify.inline{"data-icon": "gg:info", "data-inline": false}
     %span= t(".reload", subject: thing.downcase)
 - if @contact_list.needs_mappings?
   %p
-    %span.iconify.inline{ "data-icon": "gg:user-list", "data-inline": false }
+    %span.iconify.inline{"data-icon": "gg:user-list", "data-inline": false}
     %span= t(".need_mappings", subject: thing.downcase)
     = render partial: "shared/flash"
     = render "mappings", resource: @contact_list,
@@ -30,8 +30,8 @@
 - if @contact_list.mapped?
   = render partial: "shared/flash"
   %p
-    %span.iconify.animate-spin.inline{ "data-icon": "gg:spinner", "data-inline": false }
+    %span.iconify.animate-spin.inline{"data-icon": "gg:spinner", "data-inline": false}
     %span= t(".mapped", subject: thing.downcase)
   %p
-    %span.iconify.inline{ "data-icon": "gg:info", "data-inline": false }
+    %span.iconify.inline{"data-icon": "gg:info", "data-inline": false}
     %span= t(".reload", subject: thing.downcase)

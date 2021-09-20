@@ -41,11 +41,12 @@ class ContactListsController < ApplicationController
   # rubocop:enable Metrics/AbcSize, Metrics/MethodLength
 
   private
-    def contact_list_params
-      params.fetch(ContactList.model_name.param_key.to_sym, {}).permit(:contacts_file)
-    end
 
-    def set_contact_list
-      @contact_list = ContactList.find(params[:id])
-    end
+  def contact_list_params
+    params.fetch(ContactList.model_name.param_key.to_sym, {}).permit(:contacts_file)
+  end
+
+  def set_contact_list
+    @contact_list = ContactList.find(params[:id])
+  end
 end
