@@ -18,7 +18,7 @@ RSpec.describe Iso8601Validator do
     [
       nil, "", "invalid", 20210101, :invalid, Time.zone.now
     ].each do |input|
-      describe "#{input.class} date with value #{input.inspect}" do
+      context "with type:#{input.class} and value #{input.inspect}" do
         it "fails validation" do
           rtest.dummy = input
           expect(rtest).to be_invalid
@@ -31,7 +31,7 @@ RSpec.describe Iso8601Validator do
     [
       "20211231", "19700101", "2021-12-31", "1970-01-10"
     ].each do |input|
-      describe "#{input.class} date with value #{input.inspect}" do
+      context "with type:#{input.class} and value #{input.inspect}" do
         it "passes validation" do
           rtest.dummy = input
           expect(rtest).to be_valid

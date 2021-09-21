@@ -1,8 +1,9 @@
 class CreditCardValidator < ActiveModel::EachValidator
   def validate_each(record, attribute, value)
-    raise TypeError unless value.is_a? String
+    raise TypeError unless value.is_a?(String) && !value.empty?
+    validate_luhn(value)
     determine_franchise(value)
-  rescue TypeError
+  rescue ArgumentError, LuhnError, TypeError
     record.errors.add(attribute, I18n.t("errors.messages.credit_card"))
   end
 
@@ -37,6 +38,20 @@ class CreditCardValidator < ActiveModel::EachValidator
     {name: "Visa", inn: [4], len: [13, 16]},
     {name: "Visa Electron", inn: [4026, 417500, 4508, 4844, 4913, 4917], len: [16]}
   ]
+
+  def validate_luhn(card)
+    digits = card.chars.map { |i| Integer(i, 10) }.reverse
+    cksum = 0
+    digits.each_slice(2) do |i, j|
+      cksum += i
+      next unless j
+      j *= 2
+      j = j.divmod(10).inject(:+) if j > 9
+      cksum += j
+    end
+
+    raise LuhnError unless cksum.modulo(10).zero?
+  end
 
   def determine_franchise(card)
   end
