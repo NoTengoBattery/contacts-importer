@@ -9,4 +9,5 @@ class Contact < ApplicationRecord
 
   validates :address, presence: true
   validates :birth_date, iso8601: true, presence: true
+  validates :credit_card, credit_card: true, presence: true
 end

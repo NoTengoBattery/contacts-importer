@@ -3,6 +3,7 @@ en:
   errors:
     messages:
       blank: can't be blank
+      credit_card: must be a valid credit card number
       format: 'must be one of the following formats: %{formats}'
       iso8601: must be in ISO8601 format
       oversize: must be less than %{size}
