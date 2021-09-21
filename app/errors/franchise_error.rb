@@ -1,0 +1,1 @@
+class FranchiseError < StandardError; end

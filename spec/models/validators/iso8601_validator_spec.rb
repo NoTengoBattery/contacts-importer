@@ -16,7 +16,7 @@ RSpec.describe Iso8601Validator do
 
   context "with invalid ISO8601 date" do
     [
-      nil, "", "invalid", 20210101, Time.zone.now
+      nil, "", "invalid", 20210101, :invalid, Time.zone.now
     ].each do |input|
       describe "#{input.class} date with value #{input.inspect}" do
         it "fails validation" do
