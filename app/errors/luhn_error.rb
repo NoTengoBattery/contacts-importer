@@ -1,0 +1,1 @@
+class LuhnError < StandardError; end
