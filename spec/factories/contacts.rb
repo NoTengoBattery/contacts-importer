@@ -4,7 +4,8 @@ FactoryBot.define do
     details {
       {
         address: "Fake Addres #24, Fake City",
-        birth_date: "20210101"
+        birth_date: "20210101",
+        credit_card: "4012888888881881"
       }
     }
   end
