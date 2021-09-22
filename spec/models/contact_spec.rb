@@ -8,6 +8,19 @@ RSpec.describe Contact, type: :model do
     it { is_expected.to validate_presence_of(:address) }
     it { is_expected.to validate_presence_of(:birth_date) }
     it { is_expected.to validate_presence_of(:credit_card) }
+    it { is_expected.to validate_presence_of(:email) }
+    it { is_expected.to validate_presence_of(:name) }
+
+    it { is_expected.to allow_value("371449635398431").for(:credit_card) }
+    it { is_expected.not_to allow_value("371449635398430").for(:credit_card) }
+    it { is_expected.to allow_value("software@notengobattery.com").for(:email) }
+    it { is_expected.not_to allow_value("software@notengobattery,com").for(:email) }
+    it { is_expected.to allow_value("Oever Gonzalez").for(:name) }
+    it { is_expected.to allow_value("Oever-Gonzalez").for(:name) }
+    it { is_expected.not_to allow_value("Oever-González").for(:name) }
+    it { is_expected.to allow_value("(+99) 999 999 99 99").for(:phone) }
+    it { is_expected.to allow_value("(+99) 999-999-99-99").for(:phone) }
+    # it { is_expected.not_to allow_value("(+99) 999 999-99 99").for(:phone) }
   end
 
   describe "#save" do
@@ -18,7 +31,7 @@ RSpec.describe Contact, type: :model do
       it "encrypts the credit card number" do
         contact.credit_card = card
         contact.save
-        expect(contact.encrypted_card).to(
+        expect(contact.encrypted_card.with_indifferent_access).to(
           include("censored" => censored)
         )
       end
