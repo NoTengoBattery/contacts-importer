@@ -10,17 +10,36 @@ RSpec.describe Contact, type: :model do
     it { is_expected.to validate_presence_of(:credit_card) }
     it { is_expected.to validate_presence_of(:email) }
     it { is_expected.to validate_presence_of(:name) }
+    it { is_expected.to validate_presence_of(:phone) }
 
-    it { is_expected.to allow_value("371449635398431").for(:credit_card) }
-    it { is_expected.not_to allow_value("371449635398430").for(:credit_card) }
-    it { is_expected.to allow_value("software@notengobattery.com").for(:email) }
-    it { is_expected.not_to allow_value("software@notengobattery,com").for(:email) }
-    it { is_expected.to allow_value("Oever Gonzalez").for(:name) }
-    it { is_expected.to allow_value("Oever-Gonzalez").for(:name) }
-    it { is_expected.not_to allow_value("Oever-González").for(:name) }
-    it { is_expected.to allow_value("(+99) 999 999 99 99").for(:phone) }
-    it { is_expected.to allow_value("(+99) 999-999-99-99").for(:phone) }
-    # it { is_expected.not_to allow_value("(+99) 999 999-99 99").for(:phone) }
+    ["4709195919792", "4417772164978", "3528274953930987"].each do |card|
+      it { is_expected.to allow_value(card).for(:credit_card) }
+    end
+    ["software@notengobattery.com", "test@example.com", Faker::Internet.email].each do |email|
+      it { is_expected.to allow_value(email).for(:email) }
+    end
+    ["software@notengobattery,com", "test@example@com"].each do |email|
+      it { is_expected.not_to allow_value(email).for(:email) }
+    end
+    ["notengobattery", "no-tengo-battery"].each do |name|
+      it { is_expected.to allow_value(name).for(:name) }
+    end
+    ["no#tengo#battery", "nóténgóbáttéry"].each do |name|
+      it { is_expected.not_to allow_value(name).for(:name) }
+    end
+    ["(+99) 999 999 99 99",
+      "(+00) 000 000 00 00",
+      "(+99) 999-999-99-99",
+      "(+00) 000-000-00-00"].each do |phone|
+      it { is_expected.to allow_value(phone).for(:phone) }
+    end
+    ["(+99) 999-999 99 99",
+      "(+99)-999 999 99 99",
+      "(+99) 99 999 99 99",
+      "+99 999 999 99 99",
+      "+999999999999"].each do |phone|
+      it { is_expected.not_to allow_value(phone).for(:phone) }
+    end
   end
 
   describe "#save" do
@@ -31,7 +50,7 @@ RSpec.describe Contact, type: :model do
       it "encrypts the credit card number" do
         contact.credit_card = card
         contact.save
-        expect(contact.encrypted_card.with_indifferent_access).to(
+        expect(contact.encrypted_card).to(
           include("censored" => censored)
         )
       end

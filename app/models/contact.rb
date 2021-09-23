@@ -1,7 +1,7 @@
 class Contact < ApplicationRecord
   NAME_FORMAT = /\A[a-z -]*\z/i
   NAME_ALLOWED = /[^a-z -]/i
-  PHONE_FORMAT = /\(\+\d{2}\)\ \d{3}[ -]\d{3}[ -]\d{2}[ -]\d{2}/
+  PHONE_FORMAT = /\(\+\d{2}\)\ (\d{3}-\d{3}-\d{2}-\d{2}|\d{3} \d{3} \d{2} \d{2})/
 
   include CreditCard
 
@@ -14,7 +14,7 @@ class Contact < ApplicationRecord
     address: :string,
     birth_date: :string,
     credit_card: :string,
-    encrypted_card: :jsonb,
+    encrypted_card: :binary,
     email: :string,
     name: :string,
     phone: :string
@@ -33,7 +33,7 @@ class Contact < ApplicationRecord
   def encrypt_card
     card_check_info = valid_card?(credit_card)
     if card_check_info
-      self.encrypted_card = encrypted_card || {}
+      self.encrypted_card = encrypted_card || HashWithIndifferentAccess.new
       encrypted_card[:censored] = ("*" * (card_check_info[:length] - 4)) + credit_card.last(4)
       encrypted_card[:encrypted] = Digest::MD5.hexdigest(credit_card)
       encrypted_card[:franchise] = card_check_info[:franchise][:name]
