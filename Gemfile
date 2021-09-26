@@ -10,7 +10,7 @@ gem "puma", "~> 5.4"
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
 gem "webpacker", "~> 6.0.0.rc.5"
 # Turbo makes navigating your web application faster.
-gem "turbo-rails", "~> 0.7.14"
+gem "turbo-rails", "~> 0.7.15"
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem "jbuilder", "~> 2.11", ">= 2.11.2"
 # Use Redis adapter to run Action Cable in production
@@ -68,7 +68,7 @@ group :development do
   gem "i18n-tasks", "~> 0.9.34", require: false
   # Gems for improving development quality
   gem "haml_lint", "~> 0.37.1", require: false
-  gem "solargraph", "~> 0.43.0", require: false
+  gem "solargraph", "~> 0.43.2", require: false
 end
 
 group :test do

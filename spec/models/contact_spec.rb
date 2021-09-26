@@ -2,7 +2,7 @@ require "rails_helper"
 require "shared_rutines"
 
 RSpec.describe Contact, type: :model do
-  subject(:contact) { FactoryBot.build(:contact) }
+  subject(:contact) { FactoryBot.create(:contact) }
 
   context "with validations" do
     it { is_expected.to validate_presence_of(:address) }
@@ -50,9 +50,8 @@ RSpec.describe Contact, type: :model do
       it "encrypts the credit card number" do
         contact.credit_card = card
         contact.save
-        expect(contact.encrypted_card).to(
-          include("censored" => censored)
-        )
+        the_contact = described_class.find(contact.id)
+        expect(the_contact.encrypted_card).to(include("censored" => censored))
       end
 
       it "destroys the original credit card number" do
