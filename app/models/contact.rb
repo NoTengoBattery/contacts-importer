@@ -31,9 +31,9 @@ class Contact < ApplicationRecord
     return unless errors[:credit_card].empty? && credit_card != "*"
     franchise = determine_franchise!(credit_card)
     self.encrypted_card = encrypted_card || HashWithIndifferentAccess.new
-    encrypted_card[:censored] = ("*" * (credit_card.size - 4)) + credit_card.last(4)
-    encrypted_card[:encrypted] = Digest::MD5.hexdigest(credit_card)
-    encrypted_card[:franchise] = franchise
+    encrypted_card["censored"] = ("*" * (credit_card.size - 4)) + credit_card.last(4)
+    encrypted_card["encrypted"] = Digest::MD5.hexdigest(credit_card)
+    encrypted_card["franchise"] = franchise
     self.credit_card = "*"
   rescue FranchiseError
     nil
