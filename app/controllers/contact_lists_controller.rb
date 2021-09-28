@@ -31,7 +31,7 @@ class ContactListsController < ApplicationController
       flash.now[:notice] = I18n.t("contact_lists.messages.unique")
       render :show, status: :unprocessable_entity
     else
-      @contact_list.status = :mapped
+      @contact_list.status = "mapped"
       if @contact_list.save
         ExtractCsvJob.perform_later(resource: @contact_list)
         redirect_to @contact_list, notice: I18n.t("contact_lists.messages.successful_map")
