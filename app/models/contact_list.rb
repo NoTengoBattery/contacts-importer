@@ -10,7 +10,7 @@ class ContactList < ApplicationRecord
   has_one_attached :contacts_file
   has_many :contacts, dependent: :destroy
 
-  enum status: {on_hold: 0, processing: 1, needs_mappings: 4, mapped: 5, failed: 2, finished: 3}
+  enum status: {on_hold: 0, processing: 1, needs_mappings: 2, mapped: 3, failed: 4, finished: 5}
 
   validate :acceptable_contacts_file
 
@@ -20,9 +20,7 @@ class ContactList < ApplicationRecord
 
   def mappings
     map = [[I18n.t("contact_lists.select"), nil]]
-    FIELDS.each do |field|
-      map.push([I18n.t("contact_lists.#{field}"), field])
-    end
+    FIELDS.each { |field| map.push([I18n.t("contact_lists.#{field}"), field]) }
     map
   end
 end
