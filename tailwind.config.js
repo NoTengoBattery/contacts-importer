@@ -11,7 +11,7 @@ module.exports = {
       disabled: colors.warmGray,
       display: colors.trueGray,
       error: colors.red,
-      secondary: colors.lime,
+      success: colors.green,
       white: colors.white
     },
     fontFamily: {
