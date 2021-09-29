@@ -5,9 +5,9 @@ import { Application } from '@hotwired/stimulus'
 import { definitionsFromContext } from '@hotwired/stimulus-webpack-helpers'
 
 declare global {
-    interface Window { Stimulus: any; }
+    interface Window { Stimulus: Application; }
 }
 
-window.Stimulus = Application.start()
+const Stimulus = window.Stimulus = Application.start()
 const context = require.context('controllers', true, /_controller\.[jt]s$/)
-window.Stimulus.load(definitionsFromContext(context))
+Stimulus.load(definitionsFromContext(context))
