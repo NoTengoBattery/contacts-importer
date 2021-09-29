@@ -1,11 +1,10 @@
 import { Controller } from '@hotwired/stimulus'
 import { enableElement } from '@rails/ujs'
 
-export default class extends Controller {
-  readonly resetTarget!: Element
+class FormController extends Controller {
   readonly resetTargets!: Element[]
-  readonly hasResetTarget!: boolean
-
+}
+export default class extends (Controller as typeof FormController) {
   static targets = ['reset'];
 
   reset (): void {
