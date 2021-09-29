@@ -8,9 +8,9 @@
       = f.label(:password, class: style_form_label)
       = f.password_field(:password, autocomplete: "new-password", class: style_form_field)
       = validations_form_errors_for(resource, :password)
-      - if signin_up
+      - if for_sign_up
         = validations_form_suggestion("#{t("misc.tip")}:", t("users.shared.random_recommended"))
-    - if signin_up
+    - if for_sign_up
       .form-field.mt-2
         = f.label(:password_confirmation, class: style_form_label)
         = f.password_field(:password_confirmation, autocomplete: "new-password", class: style_form_field)

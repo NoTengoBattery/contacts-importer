@@ -1,7 +1,7 @@
-- uuid = dom_uuid("#{t(:site_name)} ~ Full Logo Horizontal")
+- uid = dom_uid("#{t(:site_name)} ~ Full Logo Horizontal")
 
-- cache(uuid) do
-  .logo.inline-block.relative.h-6{aria: {hidden: "true"}, data: {"turbo-permanent": true}, id: uuid}
+- cache(uid) do
+  .logo.inline-block.relative.h-6{aria: {hidden: "true"}, data: {"turbo-permanent": true}, id: uid}
     = render "shared/logo"
     .logo-text.absolute.h-6.inset-0.left-7
       .font-extrabold.text-base.text-primary-700.tracking-tighter= t(:site_name)
