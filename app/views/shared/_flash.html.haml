@@ -1,3 +1,5 @@
 - flash.each do |type, message|
+  <!-- #{type} -->
+  - type = type_transform(type)
   .mt-2.p-2.ring-2.ring-opacity-75.rounded{class: [:"bg-#{type}-600", :"ring-#{type}-800"]}
     .text-white= message
