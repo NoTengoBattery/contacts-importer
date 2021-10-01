@@ -13,8 +13,6 @@ en:
     birth_date: Birth date
     credit_card: Credit card number
     email: Email
-    mappings:
-      field: CSV field
     messages:
       blank: All fields are required
       successful_map: Information successfully mapped!
@@ -27,8 +25,17 @@ en:
     phone: Phone number
     select: Select an unused option...
     show:
-      mapped: The contacts are being extracted now...
-      need_mappings: In the following screen select what information gathered from your CSV corresponds to which contact details
-      on_hold: This %{subject} will be processed soon...
-      processing: This %{subject} is already in process... Hang on!
-      reload: Reload this page to see the changes during the process
+      failed: Failed
+      finished: Index of contacts
+      mapped: Extracting
+      needs_mappings: Mapping fields
+      on_hold: On hold
+      processing: Processing
+    steps:
+      needs_mappings:
+        needs_mappings: In the following screen select what information gathered from your CSV corresponds to which contact details
+      spinner:
+        mapped: Extracting the contacts...
+        on_hold: This %{subject} is in queue and will be processed soon...
+        processing: This %{subject} is processing...
+        reload: Reload this page to see the changes during the process or come back later

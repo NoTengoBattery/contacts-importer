@@ -1,6 +1,7 @@
 %h1= t(".heading", subject: @contact_list.model_name.human.downcase)
 
-= render "form", resource: @contact_list,
+= render "form",
+    resource: @contact_list,
     resource_name: @contact_list.model_name.param_key,
     url: contact_lists_url,
     button_text: t(".upload")

@@ -5,7 +5,11 @@
       .form-field.mt-2
         = f.label(key, class: style_form_label) do
           %code= key
-        = select_tag("map[#{key}]", options_for_select(resource.mappings, val), class: style_form_field)
+        = select_tag "map[#{key}]",
+            options_for_select(resource.mappings, val),
+            class: style_form_field,
+            data: {"turbo-permanent": true},
+            id: dom_uid(key)
     .actions.flow-root.mt-2
       = f.submit(button_text, class: %i[bg-primary-700 float-right px-3 py-1.5 text-white],
           data: {"form-target": :reset})

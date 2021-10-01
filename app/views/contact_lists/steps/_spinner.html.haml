@@ -1,0 +1,10 @@
+- subject = subject.downcase
+- uid = dom_uid(step, subject)
+
+- cache(uid) do
+  %p
+    %span.iconify.animate-spin.inline{"data-icon": "gg:spinner", "data-inline": false}
+    %span= t(".#{step}", subject: subject)
+  %p
+    %span.iconify.inline{"data-icon": "gg:info", "data-inline": false}
+    %span= t(".reload", subject: subject)

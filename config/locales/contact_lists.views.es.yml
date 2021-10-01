@@ -13,8 +13,6 @@ es:
     birth_date: Fecha de nacimiento
     credit_card: Número de tarjeta de crédito
     email: Email
-    mappings:
-      field: Campo CSV
     messages:
       blank: Todos los campos son requeridos
       successful_map: "¡Información exitosamente mapeada!"
@@ -27,8 +25,17 @@ es:
     phone: Número de teléfono
     select: Selecciona una opción no usada...
     show:
-      mapped: Ahora se están extrayendo los contactos...
-      need_mappings: En la siguiente pantalla selecciona que información recolectada de tu CSV corresponde a cual información del contacto
-      on_hold: Esta %{subject} se procesará luego...
-      processing: Esta %{subject} ya se está procesando... ¡Aguanta un poco!
-      reload: Recarga esta pagina para ver los cambios durante el proceso
+      failed: Fallido
+      finished: Índice de los contactos
+      mapped: Extrayendo
+      needs_mappings: Mapeando los campos
+      on_hold: En espera
+      processing: Procesando
+    steps:
+      needs_mappings:
+        needs_mappings: En la siguiente pantalla selecciona que información recolectada de tu CSV corresponde a cual información del contacto
+      spinner:
+        mapped: Extrayendo los contactos...
+        on_hold: Esta %{subject} está en cola y se procesará pronto...
+        processing: Esta %{subject} se está procesando...
+        reload: Recarga esta pagina para observar los cambios durante el proceso o regresa de nuevo más tarde

@@ -1,0 +1,7 @@
+%p
+  %span.iconify.inline{"data-icon": "gg:user-list", "data-inline": false}
+  %span= t(".#{step}", subject: subject)
+  = render "mappings", resource: resource,
+      resource_name: resource.model_name.param_key,
+      url: contact_lists_map_url(resource),
+      button_text: t("misc.submit")
