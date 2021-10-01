@@ -1,4 +1,4 @@
-module Layouts
+module Styles
   module FlashHelper
     def type_transform(type)
       type = type.to_sym

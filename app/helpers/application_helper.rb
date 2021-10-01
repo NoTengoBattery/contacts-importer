@@ -1,5 +1,6 @@
 require "layouts/application_layout_helper"
 require "styles/form_helper"
+require "styles/flash_helper"
 require "validations/form_helper"
 
 module ApplicationHelper
@@ -13,8 +14,9 @@ module ApplicationHelper
   end
 
   def dom_uid(*thing)
-    Rails.cache.fetch(CacheKey.gen!(thing)) do
-      "I#{Base64.urlsafe_encode64(Digest::MD5.digest(Marshal.dump(thing)), padding: false)}"
+    cache_key = CacheKey.gen!(thing)
+    Rails.cache.fetch(cache_key) do
+      "I#{Base64.urlsafe_encode64(Digest::SHA256.digest(cache_key), padding: false)}"
     end
   end
 end
