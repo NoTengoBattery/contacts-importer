@@ -23,7 +23,7 @@ en:
       heading: Upload a %{subject}
       upload: Upload!
     phone: Phone number
-    select: Select an unused option...
+    select: Select an option...
     show:
       failed: Failed
       finished: Index of contacts

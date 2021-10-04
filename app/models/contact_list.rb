@@ -19,8 +19,6 @@ class ContactList < ApplicationRecord
   end
 
   def mappings
-    map = [[I18n.t("contact_lists.select"), nil]]
-    FIELDS.each { |field| map.push([I18n.t("contact_lists.#{field}"), field]) }
-    map
+    FIELDS.each_with_object([]) { |field, res| res.push([I18n.t("contact_lists.#{field}"), field]) }
   end
 end

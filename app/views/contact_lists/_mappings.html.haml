@@ -1,15 +1,15 @@
 #contact-list-mappings
   = form_for(resource, as: resource_name, url: url,
-    data: {controller: "form", action: "turbo:submit-end->form#reset"}) do |f|
+    data: {controller: "form mappings", action: "turbo:submit-end->form#reset"}) do |f|
     - resource.ir["headers"].each do |key, val|
       .form-field.mt-2
         = f.label(key, class: style_form_label) do
           %code= key
         = select_tag "map[#{key}]",
-            options_for_select(resource.mappings, val),
+            options_for_select(resource.mappings, nil),
             class: style_form_field,
-            data: {"turbo-permanent": true},
-            id: dom_uid(key)
+            data: {"turbo-permanent": true, "mappings-target": :select, action: "change->mappings#select"},
+            id: dom_uid(key), prompt: t("contact_lists.select")
     .actions.flow-root.mt-2
       = f.submit(button_text, class: %i[bg-primary-700 float-right px-3 py-1.5 text-white],
           data: {"form-target": :reset})

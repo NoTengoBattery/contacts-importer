@@ -23,7 +23,7 @@ es:
       heading: Subir una %{subject}
       upload: "¡Subir!"
     phone: Número de teléfono
-    select: Selecciona una opción no usada...
+    select: Selecciona una opción...
     show:
       failed: Fallido
       finished: Índice de los contactos
