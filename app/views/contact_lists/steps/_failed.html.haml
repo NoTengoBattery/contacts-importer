@@ -1,0 +1,6 @@
+- uid = dom_uid(resource.cache_key_with_version)
+
+- cache(uid) do
+  %p{data: {"turbo-permanent": true}, id: uid}
+    %span.iconify.inline{"data-icon": "gg:smile-sad", "data-inline": false}
+    %span= t(".message")

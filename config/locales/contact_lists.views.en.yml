@@ -32,6 +32,8 @@ en:
       on_hold: On hold
       processing: Processing
     steps:
+      failed:
+        message: We were unable to correctly process any of the contacts in the provided CSV file. Please check the CSV file and try again.
       needs_mappings:
         needs_mappings: In the following screen select what information gathered from your CSV corresponds to which contact details
       spinner:

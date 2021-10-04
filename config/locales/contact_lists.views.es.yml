@@ -32,6 +32,8 @@ es:
       on_hold: En espera
       processing: Procesando
     steps:
+      failed:
+        message: No pudimos procesar correctamente ninguno de los contactos en el archivo CSV proporcionado. Por favor, verifica el archivo CSV e inténtalo de nuevo.
       needs_mappings:
         needs_mappings: En la siguiente pantalla selecciona que información recolectada de tu CSV corresponde a cual información del contacto
       spinner:
