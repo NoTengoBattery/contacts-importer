@@ -1,3 +1,13 @@
 %h1= t(".title")
 .mt-6
   = button_to t("misc.new"), new_contact_list_path, class: style_form_button, method: :get
+.clear-right.overflow-x-auto.py-3
+  %table{class: style_table}
+    %thead{class: style_table_head}
+      %tr
+        - [t("misc.id"), t("misc.status"), t("misc.attachment")].each do |row|
+          %th{scope: :col, class: style_table_cell(4)}= row
+    %tbody.text-display-700
+      = render partial: "contact_lists/row", collection: @contact_lists, as: :list
+= render partial: "shared/pagination",
+    locals: {resource: nil, page: @contact_lists, link_gen: method(:contact_lists_path)}

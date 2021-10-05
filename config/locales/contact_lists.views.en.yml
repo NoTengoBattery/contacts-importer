@@ -32,9 +32,9 @@ en:
     show:
       download: Download the original CSV file
       failed: Failed
-      finished: Index of contacts
+      finished: Finished
       mapped: Extracting
-      needs_mappings: Mapping fields
+      needs_mappings: Needs mappings
       on_hold: On hold
       processing: Processing
     steps:

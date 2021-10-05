@@ -19,6 +19,11 @@ class ContactListsController < ApplicationController
     @contacts = @contact_list.contacts.page(params[:page])
   end
 
+  def index
+    @user = current_user
+    @contact_lists = @user.contact_lists.page(params[:page])
+  end
+
   # No time to optimize this
   # rubocop:disable Metrics/AbcSize, Metrics/MethodLength
   def map

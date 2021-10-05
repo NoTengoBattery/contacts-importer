@@ -4,4 +4,4 @@
 %tr
   %th{scope: :row, class: style_table_cell(2)}= contact.try(head[1])
   - fields.each do |row|
-    %td{scope: :col, class: style_table_cell(2)}= contact.try(row[1])
+    %td{class: style_table_cell(2)}= contact.try(row[1])

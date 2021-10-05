@@ -14,6 +14,9 @@ module.exports = {
       success: colors.green,
       white: colors.white
     },
+    container: {
+      center: true
+    },
     fontFamily: {
       mono: ['JetBrains Mono', 'monospace'],
       sans: ['Rubik', 'sans-serif']

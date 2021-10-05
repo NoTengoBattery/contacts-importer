@@ -32,9 +32,9 @@ es:
     show:
       download: Descargar el archivo CSV original
       failed: Fallido
-      finished: Índice de los contactos
+      finished: Finalizado
       mapped: Extrayendo
-      needs_mappings: Mapeando los campos
+      needs_mappings: Necesita mapeo de campos
       on_hold: En espera
       processing: Procesando
     steps:
