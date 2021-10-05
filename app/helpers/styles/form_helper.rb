@@ -23,7 +23,7 @@ module Styles
       classes
     end
 
-    def style_form_button() = %i[bg-primary-700 float-right px-3 py-1.5 text-white]
+    def style_form_button() = %i[bg-primary-700 float-right mx-1 px-3 py-1.5 text-white]
 
     def style_form_link
       classes = %i[flex items-center justify-center]
