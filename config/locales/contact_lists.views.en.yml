@@ -11,8 +11,11 @@ en:
   contact_lists:
     address: Address
     birth_date: Birth date
+    birth_date_display: Birth date
     credit_card: Credit card number
+    credit_card_display: Credit card
     email: Email
+    franchise: Franchise
     messages:
       blank: All fields are required
       successful_map: Information successfully mapped!
@@ -34,6 +37,8 @@ en:
     steps:
       failed:
         message: We were unable to correctly process any of the contacts in the provided CSV file. Please check the CSV file and try again.
+      finished:
+        message: Your contacts have been imported. The following list shows all successfully imported contacts.
       needs_mappings:
         needs_mappings: In the following screen select what information gathered from your CSV corresponds to which contact details
       spinner:

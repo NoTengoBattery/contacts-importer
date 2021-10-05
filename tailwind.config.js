@@ -17,6 +17,9 @@ module.exports = {
     fontFamily: {
       mono: ['JetBrains Mono', 'monospace'],
       sans: ['Rubik', 'sans-serif']
+    },
+    minWidth: {
+      32: '8rem'
     }
   },
   variants: {

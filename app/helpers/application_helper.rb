@@ -1,6 +1,7 @@
 require "layouts/application_layout_helper"
 require "styles/form_helper"
 require "styles/flash_helper"
+require "styles/table_helper"
 require "validations/form_helper"
 
 module ApplicationHelper

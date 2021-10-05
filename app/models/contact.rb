@@ -25,6 +25,12 @@ class Contact < ApplicationRecord
 
   after_validation :encrypt_card
 
+  def credit_card_display() = details["encrypted_card"].[]("censored")
+
+  def birth_date_display() = Date.parse(details["birth_date"]).strftime("%Y %B %e")
+
+  def franchise() = details["encrypted_card"]["franchise"].[]("name")
+
   private
 
   def encrypt_card

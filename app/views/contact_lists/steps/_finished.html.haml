@@ -1,0 +1,14 @@
+- uid = dom_uid(resource.cache_key_with_version)
+
+- cache(uid) do
+  %p{data: {"turbo-permanent": true}, id: uid}
+    %span.iconify.inline{"data-icon": "gg:smile-mouth-open", "data-inline": false}
+    %span= t(".message")
+  .overflow-x-auto.py-3
+    %table{class: style_table}
+      %thead{class: style_table_head}
+        %tr
+          - resource.show_mappings.each do |row|
+            %th{scope: :col, class: style_table_cell(4)}= row[0]
+      %tbody.text-display-700
+        = render partial: "contacts/row", collection: resource.contacts, as: :contact, locals: {list: resource}

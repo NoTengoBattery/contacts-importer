@@ -11,8 +11,11 @@ es:
   contact_lists:
     address: Diercción
     birth_date: Fecha de nacimiento
+    birth_date_display: Fecha de nacimiento
     credit_card: Número de tarjeta de crédito
+    credit_card_display: Tarjeta de crédito
     email: Email
+    franchise: Franquicia
     messages:
       blank: Todos los campos son requeridos
       successful_map: "¡Información exitosamente mapeada!"
@@ -34,6 +37,8 @@ es:
     steps:
       failed:
         message: No pudimos procesar correctamente ninguno de los contactos en el archivo CSV proporcionado. Por favor, verifica el archivo CSV e inténtalo de nuevo.
+      finished:
+        message: Se han importado tus contactos. En la siguiente lista se muestran todos los contactos exitosamente importados.
       needs_mappings:
         needs_mappings: En la siguiente pantalla selecciona que información recolectada de tu CSV corresponde a cual información del contacto
       spinner:
