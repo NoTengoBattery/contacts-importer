@@ -22,5 +22,14 @@ module Styles
       classes += %i[focus:border-0]
       classes
     end
+
+    def style_form_button() = %i[bg-primary-700 float-right px-3 py-1.5 text-white]
+
+    def style_form_link
+      classes = %i[flex items-center justify-center]
+      classes += %i[bg-primary-100 h-8 rounded-md w-8]
+      classes += %i[no-underline text-display-500 hover:text-display-600]
+      classes
+    end
   end
 end

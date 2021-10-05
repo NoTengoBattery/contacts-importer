@@ -50,6 +50,7 @@ class ExtractCsvJob < ApplicationJob
       failure |= contact.save
     end
     resource.reload
+    resource.ir = nil
     resource.status = "failed" unless failure
   end
 end

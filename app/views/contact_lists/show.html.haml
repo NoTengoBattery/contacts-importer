@@ -4,5 +4,6 @@
 %h1 #{thing} ##{@contact_list.id} - #{t(".#{status}")}
 = render partial: "shared/flash"
 
+= link_to t(".download"), rails_blob_path(@contact_list.contacts_file, disposition: "attachment")
 = render partial: "contact_lists/steps/#{%i[needs_mappings failed finished].include?(status) ? status : "spinner"}",
     locals: {step: status, subject: thing, resource: @contact_list, contacts: @contacts}

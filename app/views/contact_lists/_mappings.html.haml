@@ -11,5 +11,5 @@
             data: {"turbo-permanent": true, "mappings-target": :select, action: "change->mappings#select"},
             id: dom_uid(key), prompt: t("contact_lists.select")
     .actions.flow-root.mt-2
-      = f.submit(button_text, class: %i[bg-primary-700 float-right px-3 py-1.5 text-white],
+      = f.submit(button_text, class: style_form_button,
           data: {"form-target": :reset})

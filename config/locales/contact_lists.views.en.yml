@@ -16,6 +16,8 @@ en:
     credit_card_display: Credit card
     email: Email
     franchise: Franchise
+    index:
+      title: My contact lists
     messages:
       blank: All fields are required
       successful_map: Information successfully mapped!
@@ -28,6 +30,7 @@ en:
     phone: Phone number
     select: Select an option...
     show:
+      download: Download the original CSV file
       failed: Failed
       finished: Index of contacts
       mapped: Extracting

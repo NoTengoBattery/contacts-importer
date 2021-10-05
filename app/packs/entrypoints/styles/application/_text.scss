@@ -1,7 +1,11 @@
 code {
-  @apply font-bold text-display-900 #{!important};
+  @apply font-bold text-display-900 ;
 }
 
 h1 {
-  @apply font-medium text-2xl #{!important};
+  @apply font-medium text-2xl ;
+}
+
+a {
+  @apply underline text-primary-600 hover:text-primary-900 ;
 }

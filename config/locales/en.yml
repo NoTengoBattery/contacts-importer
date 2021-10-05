@@ -9,6 +9,7 @@ en:
       oversize: must be less than %{size}
   misc:
     http_auth_greeting: Please enter your credentials
+    new: Create new...
     submit: Submit
     tip: Tip
   site_name: Contacts

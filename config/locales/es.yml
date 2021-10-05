@@ -9,6 +9,7 @@ es:
       oversize: tiene que tener un tamaño menor %{size}
   misc:
     http_auth_greeting: Por favor ingresa tus credenciales
+    new: Crear nuevo...
     submit: Enviar
     tip: Tip
   site_name: Contactos

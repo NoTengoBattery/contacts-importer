@@ -16,6 +16,8 @@ es:
     credit_card_display: Tarjeta de crédito
     email: Email
     franchise: Franquicia
+    index:
+      title: Mis listas de contactos
     messages:
       blank: Todos los campos son requeridos
       successful_map: "¡Información exitosamente mapeada!"
@@ -28,6 +30,7 @@ es:
     phone: Número de teléfono
     select: Selecciona una opción...
     show:
+      download: Descargar el archivo CSV original
       failed: Fallido
       finished: Índice de los contactos
       mapped: Extrayendo
