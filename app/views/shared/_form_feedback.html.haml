@@ -1,8 +1,8 @@
 - uid = dom_uid(feedback, css, icon, emphasis)
 
 - cache(uid) do
-  %div{class: css, data: {"turbo-permanent": true}, id: uid}
-    %span.iconify{data: {icon: icon, inline: false}, class: %i[align-text-top inline-block]}
+  %div{class: css, id: uid}
+    %span.iconify{data: {icon: icon, inline: false, "turbo-permanent": true}, class: %i[align-text-top inline-block]}
     - if emphasis.present?
       %span.font-bold= emphasis
     %span= feedback

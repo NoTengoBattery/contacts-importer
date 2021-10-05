@@ -43,7 +43,7 @@ Rails.application.configure do
   config.active_storage.service = :local
 
   # Include generic and useful information about system operation.
-  config.log_level = :info
+  config.log_level = :debug
 
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false

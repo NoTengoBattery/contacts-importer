@@ -1,6 +1,8 @@
 FactoryBot.define do
+  n = Faker::Number.method(:number)
   factory :contact do
     association :contact_list
+    association :user
     details {
       {
         address: Faker::Address.full_address,
@@ -8,7 +10,7 @@ FactoryBot.define do
         credit_card: Faker::Finance.credit_card(:visa).delete("-"),
         email: Faker::Internet.safe_email,
         name: I18n.transliterate(Faker::Name.name).gsub(Contact::NAME_ALLOWED, ""),
-        phone: "(+99) 999 999 99 99"
+        phone: "(+#{n.call(digits: 2)}) #{n.call(digits: 3)} #{n.call(digits: 3)} #{n.call(digits: 2)} #{n.call(digits: 2)}"
       }
     }
   end

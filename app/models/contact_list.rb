@@ -4,7 +4,8 @@
 class ContactList < ApplicationRecord
   include Attachable
 
-  FIELDS = %i[name birth_date phone address credit_card email].freeze
+  MAP_FIELDS = %i[name birth_date phone address credit_card email].freeze
+  SHOW_FIELDS = %i[name birth_date_display phone address credit_card_display franchise email].freeze
 
   belongs_to :user
   has_one_attached :contacts_file
@@ -19,8 +20,10 @@ class ContactList < ApplicationRecord
   end
 
   def mappings
-    map = [[I18n.t("contact_lists.select"), nil]]
-    FIELDS.each { |field| map.push([I18n.t("contact_lists.#{field}"), field]) }
-    map
+    MAP_FIELDS.each_with_object([]) { |field, res| res.push([I18n.t("contact_lists.#{field}"), field]) }
+  end
+
+  def show_mappings
+    SHOW_FIELDS.each_with_object([]) { |field, res| res.push([I18n.t("contact_lists.#{field}"), field]) }
   end
 end

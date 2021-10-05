@@ -1,0 +1,7 @@
+- fields = list.show_mappings
+- head = fields.shift
+
+%tr
+  %th{scope: :row, class: style_table_cell(2)}= contact.try(head[1])
+  - fields.each do |row|
+    %td{class: style_table_cell(2)}= contact.try(row[1])

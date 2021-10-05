@@ -1,0 +1,10 @@
+.flash { 
+  animation: flash 500ms 2;
+  animation-timing-function: ease-in;   
+}
+  
+@keyframes flash {
+  0% { filter: brightness(100%); }
+  35% { filter: brightness(60%); }
+  100% { filter: brightness(100%); }
+}

@@ -11,10 +11,13 @@ en:
   contact_lists:
     address: Address
     birth_date: Birth date
+    birth_date_display: Birth date
     credit_card: Credit card number
+    credit_card_display: Credit card
     email: Email
-    mappings:
-      field: CSV field
+    franchise: Franchise
+    index:
+      title: My contact lists
     messages:
       blank: All fields are required
       successful_map: Information successfully mapped!
@@ -25,10 +28,24 @@ en:
       heading: Upload a %{subject}
       upload: Upload!
     phone: Phone number
-    select: Select an unused option...
+    select: Select an option...
     show:
-      mapped: The contacts are being extracted now...
-      need_mappings: In the following screen select what information gathered from your CSV corresponds to which contact details
-      on_hold: This %{subject} will be processed soon...
-      processing: This %{subject} is already in process... Hang on!
-      reload: Reload this page to see the changes during the process
+      download: Download the original CSV file
+      failed: Failed
+      finished: Finished
+      mapped: Extracting
+      needs_mappings: Needs mappings
+      on_hold: On hold
+      processing: Processing
+    steps:
+      failed:
+        message: We were unable to correctly process any of the contacts in the provided CSV file. Please check the CSV file and try again.
+      finished:
+        message: Your contacts have been imported. The following list shows all successfully imported contacts.
+      needs_mappings:
+        needs_mappings: In the following screen select what information gathered from your CSV corresponds to which contact details
+      spinner:
+        mapped: Extracting the contacts...
+        on_hold: This %{subject} is in queue and will be processed soon...
+        processing: This %{subject} is processing...
+        reload: Reload this page to see the changes during the process or come back later

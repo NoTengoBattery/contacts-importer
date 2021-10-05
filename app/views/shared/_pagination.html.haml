@@ -1,0 +1,9 @@
+- pages = {:"⇤" => link_gen.call(resource, page: 1),
+    :"←" => link_gen.call(resource, page: page.first_page? ? 1 : page.prev_page),
+    page.current_page => link_gen.call(resource, page: page.current_page),
+    :"→" => link_gen.call(resource, page: page.last_page? ? page.total_pages : page.next_page),
+    :"⇥" => link_gen.call(resource, page: page.total_pages)}
+
+.flex.items-center.space-x-1.justify-center
+  - pages.each do |key, val|
+    = link_to(key, val, class: style_form_link)

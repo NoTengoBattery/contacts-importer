@@ -11,10 +11,13 @@ es:
   contact_lists:
     address: Diercción
     birth_date: Fecha de nacimiento
+    birth_date_display: Fecha de nacimiento
     credit_card: Número de tarjeta de crédito
+    credit_card_display: Tarjeta de crédito
     email: Email
-    mappings:
-      field: Campo CSV
+    franchise: Franquicia
+    index:
+      title: Mis listas de contactos
     messages:
       blank: Todos los campos son requeridos
       successful_map: "¡Información exitosamente mapeada!"
@@ -25,10 +28,24 @@ es:
       heading: Subir una %{subject}
       upload: "¡Subir!"
     phone: Número de teléfono
-    select: Selecciona una opción no usada...
+    select: Selecciona una opción...
     show:
-      mapped: Ahora se están extrayendo los contactos...
-      need_mappings: En la siguiente pantalla selecciona que información recolectada de tu CSV corresponde a cual información del contacto
-      on_hold: Esta %{subject} se procesará luego...
-      processing: Esta %{subject} ya se está procesando... ¡Aguanta un poco!
-      reload: Recarga esta pagina para ver los cambios durante el proceso
+      download: Descargar el archivo CSV original
+      failed: Fallido
+      finished: Finalizado
+      mapped: Extrayendo
+      needs_mappings: Necesita mapeo de campos
+      on_hold: En espera
+      processing: Procesando
+    steps:
+      failed:
+        message: No pudimos procesar correctamente ninguno de los contactos en el archivo CSV proporcionado. Por favor, verifica el archivo CSV e inténtalo de nuevo.
+      finished:
+        message: Se han importado tus contactos. En la siguiente lista se muestran todos los contactos exitosamente importados.
+      needs_mappings:
+        needs_mappings: En la siguiente pantalla selecciona que información recolectada de tu CSV corresponde a cual información del contacto
+      spinner:
+        mapped: Extrayendo los contactos...
+        on_hold: Esta %{subject} está en cola y se procesará pronto...
+        processing: Esta %{subject} se está procesando...
+        reload: Recarga esta pagina para observar los cambios durante el proceso o regresa de nuevo más tarde

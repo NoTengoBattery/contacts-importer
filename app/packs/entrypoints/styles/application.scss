@@ -1,5 +1,9 @@
 @use 'application/core';
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   @apply text-display-900;
 }
