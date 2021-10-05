@@ -16,7 +16,7 @@ class ContactListsController < ApplicationController
   end
 
   def show
-    true
+    @contacts = @contact_list.contacts.page(params[:page])
   end
 
   # No time to optimize this

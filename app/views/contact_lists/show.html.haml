@@ -5,4 +5,4 @@
 = render partial: "shared/flash"
 
 = render partial: "contact_lists/steps/#{%i[needs_mappings failed finished].include?(status) ? status : "spinner"}",
-    locals: {step: status, subject: thing, resource: @contact_list}
+    locals: {step: status, subject: thing, resource: @contact_list, contacts: @contacts}
