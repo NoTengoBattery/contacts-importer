@@ -29,7 +29,7 @@
     "autoprefixer": "^10.3",
     "css-loader": "^6.2",
     "cssnano": "^5.0",
-    "mini-css-extract-plugin": "^2.3",
+    "mini-css-extract-plugin": "^2.4",
     "postcss": "^8.3",
     "postcss-flexbugs-fixes": "^5.0",
     "postcss-import": "^14.0",
@@ -64,7 +64,9 @@
   "babel": {
     "presets": [
       "./node_modules/@rails/webpacker/package/babel/preset.js",
-      ["@babel/preset-env"]
+      [
+        "@babel/preset-env"
+      ]
     ]
   },
   "browserslist": [
