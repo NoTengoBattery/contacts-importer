@@ -2,6 +2,7 @@ FactoryBot.define do
   n = Faker::Number.method(:number)
   factory :contact do
     association :contact_list
+    association :user
     details {
       {
         address: Faker::Address.full_address,

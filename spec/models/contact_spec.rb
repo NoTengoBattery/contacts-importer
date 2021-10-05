@@ -77,5 +77,41 @@ RSpec.describe Contact, type: :model do
         expect(contact.credit_card).to eq(card)
       end
     end
+
+    context "with scoped uniqueness" do
+      let(:user) { FactoryBot.create(:user) }
+      let(:contact_list_foreign) { FactoryBot.create(:contact_list) }
+      let(:contact_list) {
+        list = FactoryBot.build(:contact_list)
+        list.user = user
+        list.save!
+        list
+      }
+      let(:contact) {
+        contact = FactoryBot.build(:contact)
+        contact.contact_list = contact_list
+        contact.user = user
+        contact.save!
+        contact
+      }
+
+      it "does not save a contact with the same email for a same user" do
+        test_contact = FactoryBot.build(:contact)
+        test_contact.email = contact.email
+        test_contact.contact_list = contact_list_foreign
+        test_contact.user = user
+
+        expect(test_contact.save).to be_falsy
+      end
+
+      it "does not save a contact with the same email for a same contact list" do
+        test_contact = FactoryBot.build(:contact)
+        test_contact.email = contact.email
+        test_contact.user = contact_list_foreign.user
+        test_contact.contact_list = contact_list
+
+        expect(test_contact.save).to be_falsy
+      end
+    end
   end
 end

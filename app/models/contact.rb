@@ -5,14 +5,13 @@ class Contact < ApplicationRecord
   PHONE_FORMAT = /\(\+\d{2}\)\ (\d{3}-\d{3}-\d{2}-\d{2}|\d{3} \d{3} \d{2} \d{2})/
 
   belongs_to :contact_list
-  has_one :user, through: :contact_lists
+  belongs_to :user
 
   jsonb_accessor :details,
     address: :string,
     birth_date: :string,
     credit_card: :string,
     encrypted_card: :json,
-    email: :string,
     name: :string,
     phone: :string
 
@@ -20,6 +19,10 @@ class Contact < ApplicationRecord
   validates :birth_date, iso8601: true, presence: true
   validates :credit_card, credit_card: true, presence: true
   validates :email, format: {with: URI::MailTo::EMAIL_REGEXP}, presence: true
+  # This two uniqueness validations are backed by PostgreSQL indexes. This means that they will not fail due to race
+  # conditions. The fact that they exist here is only to provide more meaninful errors of why a contact won't save.
+  validates :email, uniqueness: {scope: :user_id}
+  validates :email, uniqueness: {scope: :contact_list_id}
   validates :name, format: {with: NAME_FORMAT}, presence: true
   validates :phone, format: {with: PHONE_FORMAT}, presence: true
 
