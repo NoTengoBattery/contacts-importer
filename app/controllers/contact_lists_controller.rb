@@ -21,7 +21,7 @@ class ContactListsController < ApplicationController
 
   def index
     @user = current_user
-    @contact_lists = @user.contact_lists.page(params[:page])
+    @contact_lists = @user.contact_lists.page(params[:page]).includes(contacts_file_attachment: :blob)
   end
 
   # No time to optimize this
