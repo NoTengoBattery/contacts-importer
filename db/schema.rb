@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_05_063558) do
+ActiveRecord::Schema.define(version: 2021_10_06_032417) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -42,6 +42,17 @@ ActiveRecord::Schema.define(version: 2021_10_05_063558) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "contact_errors", force: :cascade do |t|
+    t.jsonb "details"
+    t.bigint "contact_list_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["contact_list_id"], name: "index_contact_errors_on_contact_list_id"
+    t.index ["details"], name: "index_contact_errors_on_details", using: :gin
+    t.index ["user_id"], name: "index_contact_errors_on_user_id"
+  end
+
   create_table "contact_lists", force: :cascade do |t|
     t.integer "status", default: 0
     t.bigint "user_id", null: false
@@ -58,7 +69,7 @@ ActiveRecord::Schema.define(version: 2021_10_05_063558) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "email"
-    t.bigint "user_id", null: false
+    t.bigint "user_id"
     t.index ["contact_list_id", "email"], name: "index_contacts_on_contact_list_id_and_email", unique: true
     t.index ["contact_list_id"], name: "index_contacts_on_contact_list_id"
     t.index ["details"], name: "index_contacts_on_details", using: :gin
@@ -76,6 +87,8 @@ ActiveRecord::Schema.define(version: 2021_10_05_063558) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "contact_errors", "contact_lists"
+  add_foreign_key "contact_errors", "users"
   add_foreign_key "contact_lists", "users"
   add_foreign_key "contacts", "contact_lists"
   add_foreign_key "contacts", "users"

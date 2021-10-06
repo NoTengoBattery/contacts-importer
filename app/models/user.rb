@@ -3,4 +3,5 @@ class User < ApplicationRecord
 
   has_many :contact_lists, dependent: :destroy
   has_many :contacts, through: :contact_lists, dependent: :destroy
+  has_many :contact_errors, through: :contact_lists, dependent: :destroy
 end

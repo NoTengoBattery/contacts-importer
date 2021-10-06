@@ -10,6 +10,7 @@ class ContactList < ApplicationRecord
   belongs_to :user
   has_one_attached :contacts_file
   has_many :contacts, dependent: :destroy
+  has_many :contact_errors, dependent: :destroy
 
   enum status: {on_hold: 0, processing: 1, needs_mappings: 2, mapped: 3, failed: 4, finished: 5}
 
