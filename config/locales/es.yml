@@ -8,7 +8,10 @@ es:
       iso8601: debe estar en formato ISO8601
       oversize: tiene que tener un tamaño menor %{size}
   misc:
+    all_contact_lists: Todas las listas de contactos...
+    all_contacts: Todos los contactos...
     attachment: Archivo adjunto
+    download: Descargar
     http_auth_greeting: Por favor ingresa tus credenciales
     id: ID
     new: Crear nuevo...

@@ -3,4 +3,4 @@
   %td{class: style_table_cell(2)}
     = link_to t("contact_lists.show.#{list.status}"), list
   %td{class: style_table_cell(2)}
-    = link_to t("contact_lists.show.download"), rails_blob_path(list.contacts_file, disposition: "attachment")
+    = link_to t("misc.download"), rails_blob_path(list.contacts_file, disposition: "attachment")

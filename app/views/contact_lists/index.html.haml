@@ -1,6 +1,7 @@
 %h1= t(".title")
 .mt-6
   = button_to t("misc.new"), new_contact_list_path, class: style_form_button, method: :get
+  = button_to t("misc.all_contacts"), contacts_path, class: style_form_button, method: :get
 .clear-right.overflow-x-auto.py-3
   %table{class: style_table}
     %thead{class: style_table_head}
