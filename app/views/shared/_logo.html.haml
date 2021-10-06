@@ -1,4 +1,4 @@
-- uid = dom_uid("#{t(:site_name)} ~ Logo Scalable Icon")
+- uid = dom_uid("#{t(:site_name)} ~ Logo Scalable Icon", I18n.locale)
 
 - cache(uid) do
   .logo-icon.absolute.h-6.inset-0{data: {"turbo-permanent": true}, id: uid}

@@ -1,0 +1,7 @@
+---
+es:
+  contact_errors:
+    index:
+      date: Fecha
+      error: Error
+      title: Contactos importados fallidos
