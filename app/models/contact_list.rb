@@ -19,11 +19,15 @@ class ContactList < ApplicationRecord
     attachment_valid?(contacts_file, ["text/csv"], 1.megabyte, :contacts_file)
   end
 
-  def mappings
+  def self.mappings
     MAP_FIELDS.each_with_object([]) { |field, res| res.push([I18n.t("contact_lists.#{field}"), field]) }
   end
 
-  def show_mappings
+  def mappings() = self.class.mappings
+
+  def self.show_mappings
     SHOW_FIELDS.each_with_object([]) { |field, res| res.push([I18n.t("contact_lists.#{field}"), field]) }
   end
+
+  def show_mappings() = self.class.show_mappings
 end
