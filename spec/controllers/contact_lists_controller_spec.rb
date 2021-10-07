@@ -16,10 +16,23 @@ RSpec.describe ContactListsController, active_job: true, type: :controller do
       }.to change(ContactList, :count)
     end
 
-    it "schedules a background job" do
+    it "enqueues a background job" do
       expect {
         post :create, params: {contact_list: contact_list_attributes}
       }.to have_enqueued_job(ExtractCsvJob)
+    end
+
+    context "with invalid parameters" do
+      it "responds with an error if the file type is invalid" do
+        contact_list_attributes[:contacts_file].content_type = "text/txt"
+        post :create, params: {contact_list: contact_list_attributes}
+        expect(response).to have_http_status(:unprocessable_entity)
+      end
+
+      it "responds with an error if the params are not present" do
+        post :create
+        expect(response).to have_http_status(:unprocessable_entity)
+      end
     end
   end
 
@@ -32,11 +45,66 @@ RSpec.describe ContactListsController, active_job: true, type: :controller do
        "Credit Card" => "credit_card",
        "Date of Birth" => "birth_date"}
     }
+    let(:record) { FactoryBot.create(:contact_list) }
 
-    it "updates a record with the supplied map" do
-      list = FactoryBot.create(:contact_list)
-      ExtractCsvJob.perform_now(resource: list)
-      post :map, params: {id: list.id, map: map}
+    def post_map
+      ExtractCsvJob.perform_now(resource: record)
+      post :map, params: {id: record.id, map: map}
+    end
+
+    it "changes the status of the list to :mapped" do
+      post_map
+      expect(record.reload).to be_mapped
+    end
+
+    it "enqueues a background job" do
+      expect { post_map }.to have_enqueued_job(ExtractCsvJob)
+    end
+
+    context "with duplicated parameters" do
+      let(:map) {
+        {"Name" => "name",
+         "Email" => "name",
+         "Phone" => "phone",
+         "Address" => "address",
+         "Credit Card" => "credit_card",
+         "Date of Birth" => "birth_date"}
+      }
+
+      it "respond with an error" do
+        post_map
+        expect(response).to have_http_status(:unprocessable_entity)
+      end
+
+      it "does not enqueue a background job" do
+        expect { post_map }.not_to have_enqueued_job(ExtractCsvJob)
+      end
+    end
+
+    context "with missing parameters" do
+      let(:map) { {"Name" => "name"} }
+
+      it "respond with an error" do
+        post_map
+        expect(response).to have_http_status(:unprocessable_entity)
+      end
+
+      it "does not enqueue a background job" do
+        expect { post_map }.not_to have_enqueued_job(ExtractCsvJob)
+      end
+    end
+
+    context "with no parameters" do
+      let(:map) { {} }
+
+      it "respond with an error" do
+        post_map
+        expect(response).to have_http_status(:unprocessable_entity)
+      end
+
+      it "does not enqueue a background job" do
+        expect { post_map }.not_to have_enqueued_job(ExtractCsvJob)
+      end
     end
   end
 end
