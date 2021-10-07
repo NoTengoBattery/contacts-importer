@@ -80,6 +80,7 @@ group :test do
   gem "webdrivers"
   # Gems to support testing better
   gem "shoulda-matchers", "~> 5.0"
+  gem "rails-controller-testing", "~> 1.0", ">= 1.0"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

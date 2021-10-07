@@ -29,10 +29,10 @@ class ContactListsController < ApplicationController
   def map
     user_map = params.fetch(:map, {})
     @contact_list.ir["headers"] = user_map
-    if user_map.values.any?(&:empty?)
+    if user_map.values.any?(&:empty?) || ContactList.mappings.size != user_map.values.size
       flash.now[:error] = I18n.t("contact_lists.messages.blank")
       render :show, status: :unprocessable_entity
-    elsif user_map.values.uniq.length != user_map.values.length
+    elsif user_map.values.uniq.size != user_map.values.size
       flash.now[:error] = I18n.t("contact_lists.messages.unique")
       render :show, status: :unprocessable_entity
     else
