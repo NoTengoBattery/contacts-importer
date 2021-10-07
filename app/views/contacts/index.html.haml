@@ -1,0 +1,15 @@
+%h1= t(".title")
+.mt-6
+  = button_to t("misc.new"), new_contact_list_path, class: style_form_button, method: :get
+  = button_to t("misc.all_contact_lists"), contact_lists_path, class: style_form_button, method: :get
+  = button_to t("misc.failed_log"), contact_errors_path, class: style_form_button, method: :get
+.clear-right.overflow-x-auto.py-3
+  %table{class: style_table}
+    %thead{class: style_table_head}
+      %tr
+        - @list_class.show_mappings.each do |row|
+          %th{scope: :col, class: style_table_cell(4)}= row[0]
+    %tbody.text-display-700
+      = render partial: "contacts/row", collection: @contacts, as: :contact, locals: {list: @list_class}
+= render partial: "shared/pagination",
+    locals: {resource: nil, page: @contacts, link_gen: method(:contacts_path)}

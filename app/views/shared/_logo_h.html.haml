@@ -1,4 +1,4 @@
-- uid = dom_uid("#{t(:site_name)} ~ Full Logo Horizontal")
+- uid = dom_uid("#{t(:site_name)} ~ Full Logo Horizontal", I18n.locale)
 
 - cache(uid) do
   .logo.inline-block.relative.h-6{aria: {hidden: "true"}, data: {"turbo-permanent": true}, id: uid}

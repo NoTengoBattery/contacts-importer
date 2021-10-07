@@ -20,4 +20,10 @@ module ApplicationHelper
       "I#{Base64.urlsafe_encode64(Digest::SHA256.digest(cache_key), padding: false)}"
     end
   end
+
+  def build_contact_from_errors(err)
+    contact = Contact.new({details: err.details, user: err.user, contact_list: err.contact_list})
+    contact.valid?
+    contact
+  end
 end

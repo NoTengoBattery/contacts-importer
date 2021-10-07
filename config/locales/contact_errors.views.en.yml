@@ -1,0 +1,7 @@
+---
+en:
+  contact_errors:
+    index:
+      date: Date
+      error: Error
+      title: Contacts failed to import

@@ -10,6 +10,7 @@ class ContactList < ApplicationRecord
   belongs_to :user
   has_one_attached :contacts_file
   has_many :contacts, dependent: :destroy
+  has_many :contact_errors, dependent: :destroy
 
   enum status: {on_hold: 0, processing: 1, needs_mappings: 2, mapped: 3, failed: 4, finished: 5}
 
@@ -19,11 +20,15 @@ class ContactList < ApplicationRecord
     attachment_valid?(contacts_file, ["text/csv"], 1.megabyte, :contacts_file)
   end
 
-  def mappings
+  def self.mappings
     MAP_FIELDS.each_with_object([]) { |field, res| res.push([I18n.t("contact_lists.#{field}"), field]) }
   end
 
-  def show_mappings
+  def mappings() = self.class.mappings
+
+  def self.show_mappings
     SHOW_FIELDS.each_with_object([]) { |field, res| res.push([I18n.t("contact_lists.#{field}"), field]) }
   end
+
+  def show_mappings() = self.class.show_mappings
 end

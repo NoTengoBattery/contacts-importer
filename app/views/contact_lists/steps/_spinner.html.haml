@@ -1,5 +1,5 @@
 - subject = subject.downcase
-- uid = dom_uid(step, subject)
+- uid = dom_uid(step, subject, I18n.locale)
 
 - cache(uid) do
   %p{data: {"turbo-permanent": true}, id: "#{uid}0"}

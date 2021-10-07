@@ -47,7 +47,8 @@ class ExtractCsvJob < ApplicationJob
       params.compact!
       params.delete(nil)
       contact = resource.contacts.build({details: params, user: resource.user})
-      failure |= contact.save
+      failure |= (saved = contact.save)
+      resource.contact_errors.create({details: params, user: resource.user}) unless saved
     end
     resource.reload
     resource.ir = nil

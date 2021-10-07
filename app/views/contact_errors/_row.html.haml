@@ -1,0 +1,15 @@
+- error_contact = build_contact_from_errors(contact)
+- list = contact.contact_list
+
+%tr
+  %th{scope: :row, class: style_table_cell(2)}
+    %code.text-error-500= contact.created_at
+  %td{class: style_table_cell(2)}
+    = link_to list.id, list
+  %td{class: (style_table_cell(2) - %i[text-center])}
+    %code.text-error-500
+      %ul.list-disc.list-inside
+        - error_contact.errors.each do |error|
+          %li
+            %b #{error.attribute}:
+            %span= error.message
