@@ -9,7 +9,7 @@
   %td{class: (style_table_cell(2) - %i[text-center])}
     %code.text-error-500
       %ul.list-disc.list-inside
-        - error_contact.errors.each do |attribute, message|
+        - error_contact.errors.each do |error|
           %li
-            %b #{attribute}:
-            %span= message
+            %b #{error.attribute}:
+            %span= error.message
