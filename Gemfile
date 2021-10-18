@@ -15,7 +15,7 @@ gem "turbo-rails", "~> 0.8"
 gem "jbuilder", "~> 2.11", ">= 2.11"
 # Use Redis adapter to run Action Cable in production
 gem "hiredis", "~> 0.6"
-gem "redis", "~> 4.4", require: ["redis", "redis/connection/hiredis"]
+gem "redis", "~> 4.5", require: ["redis", "redis/connection/hiredis"]
 
 # Extra gems required for this project
 gem "aws-sdk-s3", "~> 1.103", require: false
