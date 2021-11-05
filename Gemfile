@@ -18,7 +18,7 @@ gem "hiredis", "~> 0.6"
 gem "redis", "~> 4.4", require: ["redis", "redis/connection/hiredis"]
 
 # Extra gems required for this project
-gem "aws-sdk-s3", "~> 1.103", require: false
+gem "aws-sdk-s3", "~> 1.105", require: false
 gem "bson", "~> 4.12", ">= 4.12"
 gem "devise", "~> 4.8"
 gem "devise-i18n", "~> 1.10"
