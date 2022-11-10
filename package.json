@@ -36,7 +36,7 @@
     "postcss-loader": "^6.1",
     "postcss-preset-env": "^6.7",
     "sass": "^1.42",
-    "sass-loader": "^12.1",
+    "sass-loader": "^13.2",
     "tailwindcss": "^2.2",
     "webpack": "^5.57",
     "webpack-cli": "^4.9"
